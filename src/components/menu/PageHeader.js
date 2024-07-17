@@ -26,6 +26,7 @@ const menuItems = [
       { name: "Sub Item 4", path: "/yumekai/sub-item-4" },
     ],
   },
+  { name: "Test", path: "/test" },
 ];
 
 const MenuLogoBackground = styled.div`
@@ -93,7 +94,7 @@ const MobileMenu = styled.div`
 
 const SubMenu = styled.div`
   position: absolute;
-  top: 40px;
+  top: 18px;
   left: 0;
   background: var(--background-color2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -107,16 +108,18 @@ const SubMenuWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  background-color: blue;
+  background: var(--background-color2);
 
   &:hover ${SubMenu} {
     display: flex;
   }
+  a {
+    padding-right: 5px;
+  }
 
   svg {
-    width: 20px;
-    margin: 0;
-    padding-right: 10px;
+    width: 18px;
+    height: 18px;
   }
 `;
 
@@ -124,19 +127,30 @@ const MobileSubMenu = styled.div`
   display: flex;
   flex-direction: column;
   background: var(--background-color2);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 700;
   display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
+  padding: 5px 0 5px 15px;
+`;
+
+const MenuItemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 export default function PageHeader({}) {
   const router = useRouter();
   const { pathname } = router;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(null);
   const [openSubMenus, setOpenSubMenus] = useState({});
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
     function handleResize() {
       setWindowWidth(window.innerWidth);
       if (window.innerWidth >= 800) {
@@ -153,12 +167,30 @@ export default function PageHeader({}) {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleSubMenu = (index) => {
+  function toggleSubMenu(index) {
     setOpenSubMenus((prevState) => ({
       ...prevState,
       [index]: !prevState[index],
     }));
-  };
+  }
+
+  function openSubMenu(index) {
+    setOpenSubMenus((prevState) => ({
+      ...prevState,
+      [index]: true,
+    }));
+  }
+
+  function closeSubMenu(index) {
+    setOpenSubMenus((prevState) => ({
+      ...prevState,
+      [index]: false,
+    }));
+  }
+
+  if (!windowWidth) {
+    return null;
+  }
 
   return (
     <>
@@ -169,21 +201,26 @@ export default function PageHeader({}) {
       <StyledMenu $backgroundcolor={windowWidth > 800 ? 1 : 0}>
         {windowWidth > 800 &&
           menuItems.map((item, index) => (
-            <SubMenuWrapper key={item.name}>
+            <SubMenuWrapper
+              key={item.name}
+              onMouseEnter={() => openSubMenu(index)}
+              onMouseLeave={() => closeSubMenu(index)}
+            >
               <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
                 {item.name}
               </MenuLink>
               {item.subItems && (
                 <>
-                  <IconArrow style={{ cursor: "pointer" }} onClick={() => toggleSubMenu(index)} />
+                  <IconArrow style={{ cursor: "pointer" }} />
                   {openSubMenus[index] && (
-                    <SubMenu onMouseLeave={() => toggleSubMenu(index)}>
+                    <SubMenu onMouseLeave={() => closeSubMenu(index)}>
+                      <br />
                       {item.subItems.map((subItem) => (
                         <MenuLink
                           key={subItem.name}
                           href={subItem.path}
                           $active={pathname === subItem.path ? 1 : 0}
-                          onClick={() => toggleSubMenu(index)}
+                          onClick={() => closeSubMenu(index)}
                         >
                           {subItem.name}
                         </MenuLink>
@@ -203,27 +240,29 @@ export default function PageHeader({}) {
           <MobileMenu>
             {menuItems.map((item, index) => (
               <div key={item.name}>
-                <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
-                  {item.name}
-                </MenuLink>
-                {item.subItems && (
-                  <>
+                <MenuItemWrapper>
+                  <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
+                    {item.name}
+                  </MenuLink>
+                  {item.subItems && (
                     <IconArrow
                       style={{ marginLeft: "5px", cursor: "pointer" }}
-                      onClick={() => toggleMobileSubMenu(index)}
+                      onClick={() => toggleSubMenu(index)}
                     />
-                    <MobileSubMenu $isOpen={openMobileSubMenus[index]}>
-                      {item.subItems.map((subItem) => (
-                        <MenuLink
-                          key={subItem.name}
-                          href={subItem.path}
-                          $active={pathname === subItem.path ? 1 : 0}
-                        >
-                          {subItem.name}
-                        </MenuLink>
-                      ))}
-                    </MobileSubMenu>
-                  </>
+                  )}
+                </MenuItemWrapper>
+                {item.subItems && (
+                  <MobileSubMenu $isOpen={openSubMenus[index]}>
+                    {item.subItems.map((subItem) => (
+                      <MenuLink
+                        key={subItem.name}
+                        href={subItem.path}
+                        $active={pathname === subItem.path ? 1 : 0}
+                      >
+                        {subItem.name}
+                      </MenuLink>
+                    ))}
+                  </MobileSubMenu>
                 )}
               </div>
             ))}
