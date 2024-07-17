@@ -5,10 +5,11 @@ import { useState, useEffect } from "react";
 
 // Import Icons
 import IconMenu from "/public/assets/icons/menu.svg";
-import IconArrow from "/public/assets/icons/email.svg";
+import IconArrowDown from "/public/assets/icons/arrow_drop_down.svg";
 
 const menuItems = [
   { name: "Home", path: "/" },
+  { name: "Rückblick YumeKai", path: "/yumekai-2024" },
   { name: "Das sind wir", path: "/this-is-us" },
   {
     name: "YumeKai",
@@ -19,14 +20,13 @@ const menuItems = [
     ],
   },
   {
-    name: "YumeKai1",
-    path: "/yumekai1",
+    name: "YumeKai123",
+    path: "/yumekai123",
     subItems: [
       { name: "Sub Item 3", path: "/yumekai/sub-item-3" },
       { name: "Sub Item 4", path: "/yumekai/sub-item-4" },
     ],
   },
-  { name: "Test", path: "/test" },
 ];
 
 const MenuLogoBackground = styled.div`
@@ -41,10 +41,14 @@ const StyledMenu = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ $backgroundcolor }) => $backgroundcolor == 1 && "box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)"};
+  ${({ $backgroundcolor }) => $backgroundcolor == 1 && `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) `};
   background-color: ${({ $backgroundcolor }) =>
     $backgroundcolor == 1 ? "var(--background-color2)" : "transparent"};
   z-index: 500;
+
+  svg {
+    fill: var(--text-color);
+  }
 
   @media (max-width: 800px) {
     justify-content: flex-end;
@@ -69,6 +73,9 @@ const MenuLink = styled(Link)`
 `;
 
 const HamburgerIcon = styled.div`
+  position: fixed;
+  right: 10px;
+  top: 10px;
   display: none;
   @media (max-width: 800px) {
     display: block;
@@ -77,8 +84,8 @@ const HamburgerIcon = styled.div`
 `;
 
 const MobileMenu = styled.div`
-  position: absolute;
-  top: 56px;
+  position: fixed;
+  top: 50px;
   right: 0;
   width: 200px;
   background: var(--background-color2);
@@ -86,6 +93,7 @@ const MobileMenu = styled.div`
   z-index: 600;
   display: flex;
   flex-direction: column;
+  font-size: large;
 
   @media (min-width: 801px) {
     display: none;
@@ -211,7 +219,7 @@ export default function PageHeader({}) {
               </MenuLink>
               {item.subItems && (
                 <>
-                  <IconArrow style={{ cursor: "pointer" }} />
+                  <IconArrowDown style={{ cursor: "pointer" }} />
                   {openSubMenus[index] && (
                     <SubMenu onMouseLeave={() => closeSubMenu(index)}>
                       <br />
@@ -245,7 +253,7 @@ export default function PageHeader({}) {
                     {item.name}
                   </MenuLink>
                   {item.subItems && (
-                    <IconArrow
+                    <IconArrowDown
                       style={{ marginLeft: "5px", cursor: "pointer" }}
                       onClick={() => toggleSubMenu(index)}
                     />
