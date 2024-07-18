@@ -2,40 +2,55 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import SocialMediaContainer from "@/components/menu/SocialMediaContainer";
 
 // Import Icons
 import IconMenu from "/public/assets/icons/menu.svg";
 import IconArrowDown from "/public/assets/icons/arrow_drop_down.svg";
 
+import YumeKaiLogo from "/public/assets/logo/yumekai_color_font.svg";
+
 const menuItems = [
-  { name: "Home", path: "/" },
-  { name: "Rückblick YumeKai", path: "/yumekai-2024" },
-  { name: "Das sind wir", path: "/this-is-us" },
+  { name: "Startseite", path: "/" },
   {
-    name: "YumeKai",
-    path: "/yumekai",
-    subItems: [
-      { name: "Sub Item 1", path: "/yumekai/sub-item-1" },
-      { name: "Sub Item 2", path: "/yumekai/sub-item-2" },
-    ],
-  },
-  {
-    name: "YumeKai123",
+    name: "Projekte",
     path: "/yumekai123",
     subItems: [
-      { name: "Sub Item 3", path: "/yumekai/sub-item-3" },
-      { name: "Sub Item 4", path: "/yumekai/sub-item-4" },
+      { name: "YumeKai", path: "/projekte/sub-item-3" },
+      { name: "YumeKai-Night", path: "/projekte/sub-item-4" },
     ],
   },
+  { name: "Rückblick YumeKai", path: "/yumekai-2024" },
+  { name: "Das sind wir", path: "/this-is-us" },
 ];
+
+const StyledHeader = styled.header`
+  position: relative;
+  position: sticky;
+  top: -160px;
+`;
 
 const MenuLogoBackground = styled.div`
   background-color: var(--background-color2);
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  position: relative;
+
+  svg {
+    height: 120px;
+    width: 300px;
+    padding: 20px;
+  }
+`;
+
+const SocialMediaWrapper = styled.div`
+  position: absolute;
+  left: 20px;
+  top: 20px;
 `;
 
 const StyledMenu = styled.nav`
-  position: sticky;
-  top: 0;
   width: 100vw;
   height: 56px;
   display: flex;
@@ -52,7 +67,6 @@ const StyledMenu = styled.nav`
 
   @media (max-width: 800px) {
     justify-content: flex-end;
-    padding-right: 20px;
   }
 `;
 
@@ -64,12 +78,19 @@ const MenuLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: transform 0.3s ease;
 
   ${({ $active }) =>
     $active == 1 &&
     `
       color: var(--primary-color);
     `}
+
+  &:hover {
+    color: var(--grey);
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+  }
 `;
 
 const HamburgerIcon = styled.div`
@@ -150,7 +171,7 @@ const MenuItemWrapper = styled.div`
   }
 `;
 
-export default function PageHeader({}) {
+export default function PageHeader() {
   const router = useRouter();
   const { pathname } = router;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -201,9 +222,9 @@ export default function PageHeader({}) {
   }
 
   return (
-    <>
+    <StyledHeader>
       <MenuLogoBackground>
-        <h1>Logo</h1>
+        <YumeKaiLogo />
       </MenuLogoBackground>
 
       <StyledMenu $backgroundcolor={windowWidth > 800 ? 1 : 0}>
@@ -277,6 +298,6 @@ export default function PageHeader({}) {
           </MobileMenu>
         )}
       </StyledMenu>
-    </>
+    </StyledHeader>
   );
 }

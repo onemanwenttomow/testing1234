@@ -10,6 +10,8 @@ export default createGlobalStyle`
         --border-radius-small: 5px;
         --border-radius-large: 10px;
 
+        --test-color: rgb(255, 176, 30);
+
 
         --primary: #1976D2;
         --light-primary: #CFE8FF;
@@ -36,16 +38,25 @@ export default createGlobalStyle`
         padding: 0;
         font-family: Helvetica, sans-serif;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         background-color: var(--background-color1);
+        position: relative;
+        
+        width: 100vw;
+        min-height: 100vh;
+        
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     h1{
         text-align: center;
         margin: 0;
-        padding-top: 50px;
+        padding: 20px;
         color: var(--primary-color);
     }
+
     h2{
         color: var(--primary-color);
     }
