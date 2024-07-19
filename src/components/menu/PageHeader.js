@@ -28,10 +28,11 @@ const StyledHeader = styled.header`
   position: relative;
   position: sticky;
   top: -160px;
+  z-index: 500;
 `;
 
 const MenuLogoBackground = styled.div`
-  background-color: var(--background-color2);
+  background-color: ${({ theme }) => theme.backgroundColor2};
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -52,12 +53,11 @@ const StyledMenu = styled.nav`
   justify-content: center;
   align-items: center;
   ${({ $backgroundcolor }) => $backgroundcolor == 1 && `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) `};
-  background-color: ${({ $backgroundcolor }) =>
-    $backgroundcolor == 1 ? "var(--background-color2)" : "transparent"};
-  z-index: 500;
+  background-color: ${({ $backgroundcolor, theme }) =>
+    $backgroundcolor == 1 ? theme.backgroundColor2 : "transparent"};
 
   svg {
-    fill: var(--text-color);
+    fill: ${({ theme }) => theme.text};
   }
 
   @media (max-width: 800px) {
@@ -68,7 +68,7 @@ const StyledMenu = styled.nav`
 const MenuLink = styled(Link)`
   text-decoration: none;
   padding: 0 15px;
-  color: var(--secondary-color);
+  color: ${({ theme }) => theme.secondaryColor};
   font-weight: bold;
   font-size: large;
   display: flex;
@@ -79,7 +79,7 @@ const MenuLink = styled(Link)`
   ${({ $active }) =>
     $active == 1 &&
     `
-      color: var(--primary-color);
+      color: ${({ theme }) => theme.secondaryColor};
     `}
 
   &:hover {
@@ -94,6 +94,7 @@ const HamburgerIcon = styled.div`
   right: 10px;
   top: 10px;
   display: none;
+
   @media (max-width: 800px) {
     display: block;
     cursor: pointer;
@@ -105,7 +106,7 @@ const MobileMenu = styled.div`
   top: 50px;
   right: 0;
   width: 200px;
-  background: var(--background-color2);
+  background: ${({ theme }) => theme.backgroundColor2};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 600;
   display: flex;
@@ -121,7 +122,7 @@ const SubMenu = styled.div`
   position: absolute;
   top: 18px;
   left: 0;
-  background: var(--background-color2);
+  background: ${({ theme }) => theme.backgroundColor2};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 700;
   display: flex;
@@ -133,7 +134,7 @@ const SubMenuWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  background: var(--background-color2);
+  background: ${({ theme }) => theme.backgroundColor2};
 
   &:hover ${SubMenu} {
     display: flex;
@@ -151,7 +152,7 @@ const SubMenuWrapper = styled.div`
 const MobileSubMenu = styled.div`
   display: flex;
   flex-direction: column;
-  background: var(--background-color2);
+  background: ${({ theme }) => theme.backgroundColor2};
   z-index: 700;
   display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
   padding: 5px 0 5px 15px;

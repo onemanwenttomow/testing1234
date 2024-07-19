@@ -38,7 +38,7 @@ const SocialMediaButton = styled.div`
   width: 40px;
   height: 40px;
   border-radius: var(--border-radius-small);
-  border: solid 2px var(--primary-color);
+  border: solid 2px ${({ theme }) => theme.primaryColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +52,7 @@ const SocialMediaButton = styled.div`
   }
 
   svg {
-    fill: var(--primary-color);
+    fill: ${({ theme }) => theme.primaryColor};
     width: 30px;
     height: 30px;
     padding: 0;

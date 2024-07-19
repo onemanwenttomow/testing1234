@@ -4,7 +4,8 @@ import { SocialMediaContainerFooter } from "@/components/menu/SocialMediaContain
 
 const FooterBackground = styled.footer`
   width: 100%;
-  background-color: var(--secondary-color);
+  background-color: #ffb01e;
+  color: #363537;
   display: flex;
   flex-direction: column;
   align-items: center;
