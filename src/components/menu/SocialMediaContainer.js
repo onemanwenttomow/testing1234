@@ -6,9 +6,26 @@ import XLogo from "/public/assets/icons/x.svg";
 import DiscordLogo from "/public/assets/icons/discord.svg";
 import InstagramLogo from "/public/assets/icons/instagram.svg";
 
-const SocialMediaSection = styled.section`
+const SocialMediaHeaderSection = styled.section`
+  position: absolute;
+  left: 20px;
+  top: 20px;
   display: flex;
-  flex-direction: ${({ $direction }) => $direction};
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    left: 10px;
+    top: 5px;
+    transform: scale(0.8);
+  }
+`;
+
+const SocialMediaFooterSection = styled.section`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -38,12 +55,13 @@ const SocialMediaButton = styled.div`
     fill: var(--primary-color);
     width: 30px;
     height: 30px;
+    padding: 0;
   }
 `;
 
-export default function SocialMediaContainer({ horizontal = true }) {
+export function SocialMediaContainer() {
   return (
-    <SocialMediaSection $direction={horizontal ? "row" : "column"}>
+    <>
       <Link href={"https://www.instagram.com/yumekai.official/"}>
         <SocialMediaButton>
           <InstagramLogo />
@@ -59,6 +77,22 @@ export default function SocialMediaContainer({ horizontal = true }) {
           <DiscordLogo />
         </SocialMediaButton>
       </Link>
-    </SocialMediaSection>
+    </>
+  );
+}
+
+export function SocialMediaContainerHeader() {
+  return (
+    <SocialMediaHeaderSection>
+      <SocialMediaContainer />
+    </SocialMediaHeaderSection>
+  );
+}
+
+export function SocialMediaContainerFooter() {
+  return (
+    <SocialMediaFooterSection>
+      <SocialMediaContainer />
+    </SocialMediaFooterSection>
   );
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import SocialMediaContainer from "@/components/menu/SocialMediaContainer";
+import { SocialMediaContainerHeader } from "@/components/menu/SocialMediaContainer";
 
 // Import Icons
 import IconMenu from "/public/assets/icons/menu.svg";
@@ -14,10 +14,10 @@ const menuItems = [
   { name: "Startseite", path: "/" },
   {
     name: "Projekte",
-    path: "/yumekai123",
+    path: "/projekte",
     subItems: [
-      { name: "YumeKai", path: "/projekte/sub-item-3" },
-      { name: "YumeKai-Night", path: "/projekte/sub-item-4" },
+      { name: "YumeKai", path: "/projekte/yumekai" },
+      { name: "YumeKai-Night", path: "/projekte/yumekai-night" },
     ],
   },
   { name: "Rückblick YumeKai", path: "/yumekai-2024" },
@@ -37,17 +37,12 @@ const MenuLogoBackground = styled.div`
   width: 100vw;
   position: relative;
 
-  svg {
+  .logo {
     height: 120px;
     width: 300px;
+    max-width: 45vw;
     padding: 20px;
   }
-`;
-
-const SocialMediaWrapper = styled.div`
-  position: absolute;
-  left: 20px;
-  top: 20px;
 `;
 
 const StyledMenu = styled.nav`
@@ -75,6 +70,7 @@ const MenuLink = styled(Link)`
   padding: 0 15px;
   color: var(--secondary-color);
   font-weight: bold;
+  font-size: large;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -224,7 +220,8 @@ export default function PageHeader() {
   return (
     <StyledHeader>
       <MenuLogoBackground>
-        <YumeKaiLogo />
+        <YumeKaiLogo className="logo" />
+        <SocialMediaContainerHeader />
       </MenuLogoBackground>
 
       <StyledMenu $backgroundcolor={windowWidth > 800 ? 1 : 0}>

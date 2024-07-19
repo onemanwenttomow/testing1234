@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import SocialMediaContainer from "@/components/menu/SocialMediaContainer";
+import { SocialMediaContainerFooter } from "@/components/menu/SocialMediaContainer";
 
 const FooterBackground = styled.footer`
   width: 100%;
@@ -53,7 +53,7 @@ export default function PageFooter() {
       <FooterContainerWrapper>
         <FooterContainer>
           <br />
-          <SocialMediaContainer horizontal={false} />
+          <SocialMediaContainerFooter />
         </FooterContainer>
         <FooterContainer>
           <h3>Kontakt</h3>
@@ -81,7 +81,7 @@ export default function PageFooter() {
       <FooterLine>
         <p>2024 Dreamfly-Events UG</p>
         <p>Datenschutz</p>
-        <p>Impressum</p>
+        <Link href={"/impressum"}>Impressum</Link>
       </FooterLine>
     </FooterBackground>
   );
