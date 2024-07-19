@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { SocialMediaContainerHeader } from "@/components/menu/SocialMediaContainer";
+import ThemeToggle from "@/components/menu/DarkLightMode";
 
 // Import Icons
 import IconMenu from "/public/assets/icons/menu.svg";
 import IconArrowDown from "/public/assets/icons/arrow_drop_down.svg";
 
 import YumeKaiLogo from "/public/assets/logo/yumekai_color_font.svg";
+import DarkLightMode from "@/components/menu/DarkLightMode";
 
 const menuItems = [
   { name: "Startseite", path: "/" },
@@ -47,6 +49,7 @@ const MenuLogoBackground = styled.div`
 `;
 
 const StyledMenu = styled.nav`
+  position: relative;
   width: 100vw;
   height: 56px;
   display: flex;
@@ -91,13 +94,24 @@ const MenuLink = styled(Link)`
 
 const HamburgerIcon = styled.div`
   position: fixed;
-  right: 10px;
-  top: 10px;
+  right: 0px;
+  top: 0px;
+  width: 30px;
+
   display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  background-color: ${({ theme }) => theme.backgroundColor2};
+  padding: 10px;
+  border-radius: 0 0 0 10px;
+
+  svg {
+    cursor: pointer;
+  }
 
   @media (max-width: 800px) {
-    display: block;
-    cursor: pointer;
+    display: flex;
   }
 `;
 
@@ -168,7 +182,12 @@ const MenuItemWrapper = styled.div`
   }
 `;
 
-export default function PageHeader() {
+const DarkLightModeWrapper = styled.div`
+  position: absolute;
+  right: 30px;
+`;
+
+export default function PageHeader({ toggleTheme, theme }) {
   const router = useRouter();
   const { pathname } = router;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -258,9 +277,15 @@ export default function PageHeader() {
               )}
             </SubMenuWrapper>
           ))}
+        {windowWidth > 800 && (
+          <DarkLightModeWrapper>
+            <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
+          </DarkLightModeWrapper>
+        )}
 
-        <HamburgerIcon onClick={toggleMobileMenu}>
-          <IconMenu />
+        <HamburgerIcon>
+          <IconMenu onClick={toggleMobileMenu} />
+          <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
         </HamburgerIcon>
 
         {isMobileMenuOpen && (

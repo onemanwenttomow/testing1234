@@ -28,6 +28,11 @@ export const GlobalStyles = createGlobalStyle`
         --light-warning: #FFF2C6;
         --success: #388E3C;
         --light-success: #BBF7D0;
+
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     body {
@@ -40,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
         background: ${({ theme }) => theme.backgroundColor1};
         color: ${({ theme }) => theme.text};
         font-family: Helvetica, Tahoma, Arial, Roboto, sans-serif;
-        transition: all 0.50s linear;
+        transition: all 0.3s linear;
 
         width: 100vw;
         min-height: 100vh;
@@ -59,4 +64,7 @@ export const GlobalStyles = createGlobalStyle`
     h2{
         color: ${({ theme }) => theme.primaryColor};
     }
+
+ 
+
   `;
