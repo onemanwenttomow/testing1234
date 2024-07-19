@@ -10,7 +10,6 @@ import IconMenu from "/public/assets/icons/menu.svg";
 import IconArrowDown from "/public/assets/icons/arrow_drop_down.svg";
 
 import YumeKaiLogo from "/public/assets/logo/yumekai_color_font.svg";
-import DarkLightMode from "@/components/menu/DarkLightMode";
 
 const menuItems = [
   { name: "Startseite", path: "/" },
