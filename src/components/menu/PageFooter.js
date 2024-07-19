@@ -70,7 +70,7 @@ export default function PageFooter() {
         </FooterContainer>
         <FooterContainer>
           <h3>Infos</h3>
-          <li>erstens</li>
+          <Link href={"/faq"}>FAQ</Link>
           <li>zweitens</li>
           <li>drittens</li>
         </FooterContainer>

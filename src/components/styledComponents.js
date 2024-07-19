@@ -7,6 +7,7 @@ export const PageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
+  flex: 1;
 
   @media (max-width: 500px) {
     margin-bottom: 20px;

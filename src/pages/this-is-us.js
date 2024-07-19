@@ -5,12 +5,6 @@ export default function ThisIsUs() {
       <h1>Überschrift</h1>
       <p>agaagage</p>
       <br />
-      <h1>Überschrift</h1>
-      <p>agaagage</p>
-      <br />
-      <h1>Überschrift</h1>
-      <p>agaagage</p>
-      <br />
     </>
   );
 }

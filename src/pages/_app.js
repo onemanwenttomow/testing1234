@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "@/util/ThemeConfig";
+import { PageContent, PageWrapper } from "@/components/styledComponents";
 
 // Import Icons
 import IconUp from "/public/assets/icons/arrow_drop_up.svg";
@@ -34,6 +35,13 @@ const ScrollToTopButton = styled.div`
     transform: scale(1.1);
     transition: 0.3s;
   }
+`;
+
+const SiteWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 `;
 
 export default function App({ Component, pageProps }) {
@@ -85,10 +93,15 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <PageHeader toggleTheme={toggleTheme} theme={theme} />
-
-      <Component {...pageProps} theme={theme} />
-      <PageFooter />
+      <SiteWrapper>
+        <PageHeader toggleTheme={toggleTheme} theme={theme} />
+        <PageWrapper>
+          <PageContent>
+            <Component {...pageProps} theme={theme} />
+          </PageContent>
+        </PageWrapper>
+        <PageFooter />
+      </SiteWrapper>
       {isVisible && (
         <ScrollToTopButton onClick={scrollToTop}>
           <IconUp />
