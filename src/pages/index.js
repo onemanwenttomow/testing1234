@@ -19,7 +19,9 @@ export default function Home() {
       <p>infgqaiongoqiangqoing iaongiaqngnooig</p>
 
       <ImageCarousel visibleCount={4} interval={3000} images={images1} />
-
+      <br />
+      <br />
+      <br />
       <ConvexBackground color={1}>
         <h1>{`Unser Motto lautet: "LEB DEINEN TRAUM"`}</h1>
         <p>
