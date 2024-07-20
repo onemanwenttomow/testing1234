@@ -37,7 +37,7 @@ const Content = styled.div`
   margin-left: 40px;
 `;
 
-export function TabTitle({ title, content }) {
+export default function TabTitle({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleContent = () => {

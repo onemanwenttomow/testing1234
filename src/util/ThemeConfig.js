@@ -22,6 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         --border-radius-large: 10px;
 
         --dark-grey: #AAAAAA;
+        --light-grey: lightgrey;
         --danger: #D32F2F;
         --light-danger: #FECDD3;
         --warning: #FBC02D;

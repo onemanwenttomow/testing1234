@@ -15,6 +15,9 @@ export const PageWrapper = styled.div`
 `;
 
 export const PageContent = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 1200px;
   max-width: 90vw;
 `;

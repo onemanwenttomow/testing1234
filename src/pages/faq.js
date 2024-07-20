@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TabTitle } from "@/components/logicComponents";
+import TabTitle from "@/components/elements/TabTitle";
 import Link from "next/link";
 
 export default function FAQ() {
