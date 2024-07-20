@@ -44,8 +44,10 @@ export const GlobalStyles = createGlobalStyle`
         flex-direction: column;
         align-items: center;
         background: ${({ theme }) => theme.backgroundColor1};
+
         color: ${({ theme }) => theme.text};
         font-family: Helvetica, Tahoma, Arial, Roboto, sans-serif;
+        font-size: large;
         
 
         width: 100vw;

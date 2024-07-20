@@ -1,3 +1,9 @@
+import Columns2 from "@/components/elements/Columns2";
+import ConvexBackground from "@/components/elements/ConvexBackground";
+import RectangleContainer from "@/components/elements/RectangleContainer";
+import { StyledButton, UnstyledLink } from "@/components/styledComponents";
+import Link from "next/link";
+
 export default function ThisIsUs() {
   return (
     <>
@@ -16,6 +22,62 @@ export default function ThisIsUs() {
         für unsere und eure Hobbys in verschiedenen Events erlebbar zu machen und einen Ort zu
         schaffen, auf dem wir alle wir sein können.
       </p>
+      <ConvexBackground color={1}>
+        <h2>{`Unser Motto lautet: "LEB DEINEN TRAUM"`}</h2>
+        <p>
+          Man kann sich sicherlich denken, woher dieses Motto stammt – natürlich aus dem legendären
+          Digimon-Opening! Für uns ist klar: Wenn man dem, was man liebt folgt werden diese Träume
+          auch wahr. Genau das verkörpert die Idee der YumeKai für uns – ein Traum, den wir
+          gemeinsam mit EUCH verwirklichen möchten!
+        </p>
+        <p>Zudem bedeutet „Yume“ aus dem Japanischen übersetzt „Traum“.</p>
+      </ConvexBackground>
+      <br />
+      <Columns2
+        left={
+          <>
+            <h2>Gemeinsam Begeistern</h2>
+            <p>
+              Was uns als Team vereint, ist die Leidenschaft für das Fantastische – sei es in einer
+              weit, weit entfernten Galaxis, auf der Grand Line oder an der Schwertküste. Und diese
+              gemeinsame Begeisterung möchten wir mit allen Interessierten, Freunden und Fans
+              teilen.
+            </p>
+            <p>
+              Bereits vor der Pandemie im Jahr 2020 begannen die ersten Planungen für eine
+              Convention in Süddeutschland in unseren Köpfen – die Pandemie hat vieles erschwert,
+              jedoch blieb eine Sache für uns immer klar: Wir möchten die Anime-, Manga-, Cosplay-
+              und Nerdszene stärken und verschiedene Events in diesem Bereich für die Community auf
+              die Beine stellen.
+            </p>
+          </>
+        }
+        right={
+          <>
+            <RectangleContainer center={1} color={1}>
+              <h2>Yumeko</h2>
+              <p>
+                Unser Maskottchen Yumeko ist ein fester Teil des YumeKai Teams und seit Anfang an
+                mit dabei.
+              </p>
+              <UnstyledLink href={"/maskottchen"}>
+                <StyledButton>mehr über mich</StyledButton>
+              </UnstyledLink>
+            </RectangleContainer>
+            <br />
+            <RectangleContainer center={1} color={2}>
+              <h2>Die Gründer</h2>
+              <p>
+                Taucht ein in die Hintergrundgeschichte der Yumekai-Gründer, erfahrt hier
+                ausführlich über die kreativen Köpfe hinter der Yumekai.
+              </p>
+              <UnstyledLink href={"/ueber-uns"}>
+                <StyledButton>mehr erfahren</StyledButton>
+              </UnstyledLink>
+            </RectangleContainer>
+          </>
+        }
+      />
     </>
   );
 }
