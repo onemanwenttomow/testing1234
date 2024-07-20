@@ -1,12 +1,24 @@
 import styled from "styled-components";
 
 import ConvexBackground from "@/components/elements/ConvexBackground";
+import ImageCarousel from "@/components/elements/ImageCarousel";
+
+import hiru from "/public/assets/logo/Hiru.webp";
+import hiruCosplay from "/public/assets/logo/Hiru-Cosplay.webp";
+import hiruEssen from "/public/assets/logo/Hiru-Essen.webp";
+import hiruHandy from "/public/assets/logo/Hiru-Handy.webp";
+import hiruKunstler from "/public/assets/logo/Hiru-Kunstler.webp";
+import hiruHandler from "/public/assets/logo/Hiru-Handler.webp";
+
+const images1 = [hiru, hiruCosplay, hiruEssen, hiruHandy, hiruKunstler, hiruHandler];
 
 export default function Home() {
   return (
     <>
       <h1>Startseite</h1>
       <p>infgqaiongoqiangqoing iaongiaqngnooig</p>
+
+      <ImageCarousel visibleCount={4} interval={3000} images={images1} />
 
       <ConvexBackground color={1}>
         <h1>{`Unser Motto lautet: "LEB DEINEN TRAUM"`}</h1>
