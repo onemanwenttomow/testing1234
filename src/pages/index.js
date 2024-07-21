@@ -7,7 +7,7 @@ import Columns2 from "@/components/elements/Columns2";
 //Components
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import ImageCarousel from "@/components/elements/ImageCarousel";
-import { StyledLink } from "@/components/styledComponents";
+import { StyledLink, StyledButton, UnstyledLink } from "@/components/styledComponents";
 
 //Images
 import fylyCosplayImgae from "/public/assets/images/yumekai2024/Fyly_Cosplay.jpg";
@@ -29,6 +29,7 @@ import hiruKunstler from "/public/assets/logo/Hiru-Kunstler.webp";
 import hiruHandler from "/public/assets/logo/Hiru-Handler.webp";
 
 import yumekoImage from "/public/assets/logo/Yumeko.png";
+import FlippingCard from "@/components/elements/FlippingCard";
 
 const images1 = [hiru, hiruCosplay, hiruEssen, hiruHandy, hiruKunstler, hiruHandler];
 
@@ -275,6 +276,49 @@ export default function Home() {
           </>
         }
       />
+      <br />
+      <Columns2
+        left={
+          <>
+            <FlippingCard
+              cardHeight={400}
+              frontContent={
+                <>
+                  <h2>Überschrift 1</h2>
+                  <p>
+                    abfibaifbi bizbiz bweiab ruiaorh ouihjroih jaoihrewoiüh aowhorehnaohnre iohr
+                    ehnowr eürwe nün
+                  </p>
+                </>
+              }
+              backContent={
+                <>
+                  <h2>Überschrift 2</h2>
+                  <p>
+                    abfibaifbi bizbiz bweiab ruiaorh ouihjroih jaoihrewoiüh aowhorehnaohnre iohr
+                    ehnowr eürwe nün wad noiw anodno anwiop id pinapwmdpawü#d üa+wüoajm tüoj
+                    wrajoükrüo kjüoaw jjaw piojriop
+                  </p>
+                </>
+              }
+            />
+          </>
+        }
+        right={
+          <>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ width: "60%", height: "auto" }}>
+                <Image src={hiruHandy} alt="Maskottchen Hiru" layout="responsive" />
+              </div>
+              <p>Kennt ihr bereits Hiru?</p>
+              <UnstyledLink href={"/"}>
+                <StyledButton>Infos zu Hiru</StyledButton>
+              </UnstyledLink>
+            </div>
+          </>
+        }
+      />
+      <br />
 
       <ConvexBackground color={2}>
         <h2>zzufgvzugv</h2>
