@@ -5,6 +5,15 @@ import styled from "styled-components";
 import IconArrowDown from "/public/assets/icons/arrow_drop_down.svg";
 import IconArrowRight from "/public/assets/icons/arrow_right.svg";
 
+/*
+Aufruf der Component
+
+      <TabTitle
+        title="Wann ist die YumeKai?"
+        content="Der Termin der YumeKai 2025 ist noch nicht bekannt."
+      />
+*/
+
 const Container = styled.div`
   margin: 10px 0;
 `;

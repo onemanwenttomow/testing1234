@@ -6,6 +6,7 @@ export const lightTheme = {
   text: "#363537",
   primaryColor: "#e9300b",
   secondaryColor: "#ffb01e",
+  activeLinkColor: "#388E3C",
 };
 
 export const darkTheme = {
@@ -14,6 +15,7 @@ export const darkTheme = {
   text: "#fbfbfb",
   primaryColor: "#e9300b",
   secondaryColor: "#ffb01e",
+  activeLinkColor: "#388E3C",
 };
 
 export const GlobalStyles = createGlobalStyle`

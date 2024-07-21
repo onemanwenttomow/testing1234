@@ -1,5 +1,25 @@
 import styled from "styled-components";
 
+/*
+Aufruf der Component
+center:   1 -> content centered
+          2 -> content left-aligned
+          
+color:    1 -> theme.secondaryColor
+          2 -> var(--light-grey)
+
+      <RectangleContainer center={1} color={1}>
+        <h2>Yumeko</h2>
+        <p>
+          Unser Maskottchen Yumeko ist ein fester Teil des YumeKai Teams und seit Anfang an
+          mit dabei.
+        </p>
+        <UnstyledLink href={"/maskottchen"}>
+          <StyledButton>mehr über mich</StyledButton>
+        </UnstyledLink>
+      </RectangleContainer>
+*/
+
 const Container = styled.article`
   border-radius: var(--border-radius-large);
   background-color: #f9f9f9;

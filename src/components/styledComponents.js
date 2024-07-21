@@ -45,3 +45,12 @@ export const StyledButton = styled.button`
 export const UnstyledLink = styled(Link)`
   text-decoration: none;
 `;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.primaryColor};
+
+  &:hover {
+    color: ${({ theme }) => theme.activeLinkColor};
+  }
+`;
