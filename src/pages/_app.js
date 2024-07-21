@@ -25,6 +25,7 @@ const ScrollToTopButton = styled.div`
   align-items: center;
   cursor: pointer;
   transition: 0.3s;
+  z-index: 999;
 
   svg {
     fill: black;

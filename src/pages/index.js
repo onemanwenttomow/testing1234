@@ -1,30 +1,56 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import Link from "next/link";
+import Columns4 from "@/components/elements/Columns4";
+import Image from "next/image";
+import Columns2 from "@/components/elements/Columns2";
 
+//Components
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import ImageCarousel from "@/components/elements/ImageCarousel";
 import { StyledLink } from "@/components/styledComponents";
 
+//Images
 import fylyCosplayImgae from "/public/assets/images/yumekai2024/Fyly_Cosplay.jpg";
 import tinyfufuCosplayImage from "/public/assets/images/yumekai2024/Tinyfufu_Cosplay.jpg";
 import onyxCosplayImage from "/public/assets/images/yumekai2024/Onyx_Cosplay.jpg";
 import scarlettCosplayImage from "/public/assets/images/yumekai2024/Scarlett_Sirene_Cosplay.jpg";
 
+import emytsuuImage from "/public/assets/images/yumekai2024/Emytsuu.jpg";
+import leloImage from "/public/assets/images/yumekai2024/LeLo.jpg";
+import miruImage from "/public/assets/images/yumekai2024/Miru.jpg";
+import stellaImage from "/public/assets/images/yumekai2024/Stella.jpg";
+
+//logos
 import hiru from "/public/assets/logo/Hiru.webp";
 import hiruCosplay from "/public/assets/logo/Hiru-Cosplay.webp";
 import hiruEssen from "/public/assets/logo/Hiru-Essen.webp";
 import hiruHandy from "/public/assets/logo/Hiru-Handy.webp";
 import hiruKunstler from "/public/assets/logo/Hiru-Kunstler.webp";
 import hiruHandler from "/public/assets/logo/Hiru-Handler.webp";
-import Link from "next/link";
-import Columns4 from "@/components/elements/Columns4";
-import Image from "next/image";
-import Columns2 from "@/components/elements/Columns2";
+
+import yumekoImage from "/public/assets/logo/Yumeko.png";
 
 const images1 = [hiru, hiruCosplay, hiruEssen, hiruHandy, hiruKunstler, hiruHandler];
 
 const StyledImageHome = styled(Image)`
   width: 100%;
   border-radius: var(--border-radius-large);
+`;
+
+const floatAnimation = keyframes`
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-15px) translateX(15px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+`;
+
+const StyledYumekoImage = styled(Image)`
+  animation: ${floatAnimation} 5s ease-in-out infinite;
 `;
 
 export default function Home() {
@@ -172,6 +198,11 @@ export default function Home() {
               Grafiktablett oder lass einfach die Finger über die Tasten tanzen – und lass Yumeko
               neu erstrahlen!
             </p>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{ width: "60%", height: "auto" }}>
+                <StyledYumekoImage src={yumekoImage} alt="Maskottchen Yumeko" layout="responsive" />
+              </div>
+            </div>
           </>
         }
         right={
@@ -182,14 +213,13 @@ export default function Home() {
                 <>
                   <p style={{ textAlign: "center", marginBottom: 0 }}>Beste Technik</p>
                   <StyledImageHome
-                    src={tinyfufuCosplayImage}
-                    alt="Tinyfufu als Amity Blight
-                von The Owl House"
+                    src={miruImage}
+                    alt="Yumeko Interpretation von Miru"
                     layout="responsive"
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>
                     von:{" "}
-                    <StyledLink href={"https://www.instagram.com/tinyfufu/"} target="_blank">
+                    <StyledLink href={"https://www.instagram.com/mirukusagii/"} target="_blank">
                       Miru
                     </StyledLink>
                   </p>
@@ -199,14 +229,13 @@ export default function Home() {
                 <>
                   <p style={{ textAlign: "center", marginBottom: 0 }}>Kreativste Idee</p>
                   <StyledImageHome
-                    src={tinyfufuCosplayImage}
-                    alt="Tinyfufu als Amity Blight
-            von The Owl House"
+                    src={leloImage}
+                    alt="Yumeko Interpretation von LeLo"
                     layout="responsive"
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>
                     von:{" "}
-                    <StyledLink href={"https://www.instagram.com/tinyfufu/"} target="_blank">
+                    <StyledLink href={"https://www.instagram.com/hydrangea_bunny/"} target="_blank">
                       LeLo
                     </StyledLink>
                   </p>
@@ -219,14 +248,13 @@ export default function Home() {
                 <>
                   <p style={{ textAlign: "center", marginBottom: 0 }}>Gesamtbild Qualität</p>
                   <StyledImageHome
-                    src={tinyfufuCosplayImage}
-                    alt="Tinyfufu als Amity Blight
-                        von The Owl House"
+                    src={emytsuuImage}
+                    alt="Yumeko Interpretation von Emytsuu"
                     layout="responsive"
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>
                     von:{" "}
-                    <StyledLink href={"https://www.instagram.com/tinyfufu/"} target="_blank">
+                    <StyledLink href={"https://www.instagram.com/emytsuu/"} target="_blank">
                       Emytsuu
                     </StyledLink>
                   </p>
@@ -236,9 +264,8 @@ export default function Home() {
                 <>
                   <p style={{ textAlign: "center", marginBottom: 0 }}>Favorit der Jury</p>
                   <StyledImageHome
-                    src={tinyfufuCosplayImage}
-                    alt="Tinyfufu als Amity Blight
-                        von The Owl House"
+                    src={stellaImage}
+                    alt="Yumeko Interpretation von Stella"
                     layout="responsive"
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>von: Stella</p>
