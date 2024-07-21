@@ -8,6 +8,7 @@ import Columns2 from "@/components/elements/Columns2";
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import ImageCarousel from "@/components/elements/ImageCarousel";
 import { StyledLink, StyledButton, UnstyledLink } from "@/components/styledComponents";
+import FlippingCard from "@/components/elements/FlippingCard";
 
 //Images
 import fylyCosplayImgae from "/public/assets/images/yumekai2024/Fyly_Cosplay.jpg";
@@ -20,6 +21,21 @@ import leloImage from "/public/assets/images/yumekai2024/LeLo.jpg";
 import miruImage from "/public/assets/images/yumekai2024/Miru.jpg";
 import stellaImage from "/public/assets/images/yumekai2024/Stella.jpg";
 
+import yumekaiNightImage1 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-1.jpg";
+import yumekaiNightImage2 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-2.jpg";
+import yumekaiNightImage3 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-3.jpg";
+import yumekaiNightImage4 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-4.jpg";
+import yumekaiNightImage5 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-5.jpg";
+import yumekaiNightImage6 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-6.jpg";
+import yumekaiNightImage7 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-7.jpg";
+import yumekaiNightImage8 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-8.jpg";
+import yumekaiNightImage9 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-9.jpg";
+import yumekaiNightImage10 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-10.jpg";
+import yumekaiNightImage11 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-11.jpg";
+import yumekaiNightImage12 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-12.jpg";
+import yumekaiNightImage13 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-13.jpg";
+import yumekaiNightImage14 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-14.jpg";
+
 //logos
 import hiru from "/public/assets/logo/Hiru.webp";
 import hiruCosplay from "/public/assets/logo/Hiru-Cosplay.webp";
@@ -27,11 +43,25 @@ import hiruEssen from "/public/assets/logo/Hiru-Essen.webp";
 import hiruHandy from "/public/assets/logo/Hiru-Handy.webp";
 import hiruKunstler from "/public/assets/logo/Hiru-Kunstler.webp";
 import hiruHandler from "/public/assets/logo/Hiru-Handler.webp";
-
 import yumekoImage from "/public/assets/logo/Yumeko.png";
-import FlippingCard from "@/components/elements/FlippingCard";
 
 const images1 = [hiru, hiruCosplay, hiruEssen, hiruHandy, hiruKunstler, hiruHandler];
+const yumeKaiNightImages = [
+  yumekaiNightImage1,
+  yumekaiNightImage2,
+  yumekaiNightImage3,
+  yumekaiNightImage4,
+  yumekaiNightImage5,
+  yumekaiNightImage6,
+  yumekaiNightImage7,
+  yumekaiNightImage8,
+  yumekaiNightImage9,
+  yumekaiNightImage10,
+  yumekaiNightImage11,
+  yumekaiNightImage12,
+  yumekaiNightImage13,
+  yumekaiNightImage14,
+];
 
 const StyledImageHome = styled(Image)`
   width: 100%;
@@ -66,7 +96,7 @@ export default function Home() {
 
       <br />
       <ConvexBackground color={1}>
-        <h1>{`Conventions: Überblick und Tipps für Eltern`}</h1>
+        <h2>{`Conventions: Überblick und Tipps für Eltern`}</h2>
         <p>
           Entdecken Sie die faszinierende Welt der Anime-Conventions – ein Ort, an dem Fantasie und
           Realität miteinander verschmelzen! Für viele Eltern kann diese bunte und oft
@@ -284,21 +314,34 @@ export default function Home() {
               cardHeight={400}
               frontContent={
                 <>
-                  <h2>Überschrift 1</h2>
-                  <p>
-                    abfibaifbi bizbiz bweiab ruiaorh ouihjroih jaoihrewoiüh aowhorehnaohnre iohr
-                    ehnowr eürwe nün
-                  </p>
+                  <h3>Hier könnt ihr uns treffen:</h3>
+                  <ul>
+                    <li>09-11.08.2024 DGT in Aach am Bodensee</li>
+                    <li>10.08.2024 Natsucon in Coburg</li>
+                    <li>17-18.08.2024 Nihonbashi in Kassel</li>
+                    <li>13-15.09.2024 Gamesvention in Kempten</li>
+                    <li>05.10.2024 Manganacht in Memmingen</li>
+                  </ul>
                 </>
               }
               backContent={
                 <>
-                  <h2>Überschrift 2</h2>
-                  <p>
-                    abfibaifbi bizbiz bweiab ruiaorh ouihjroih jaoihrewoiüh aowhorehnaohnre iohr
-                    ehnowr eürwe nün wad noiw anodno anwiop id pinapwmdpawü#d üa+wüoajm tüoj
-                    wrajoükrüo kjüoaw jjaw piojriop
-                  </p>
+                  <h3>Hier waren wir:</h3>
+                  <ul>
+                    <li>YaYuCo in Dachau</li>
+                    <li>Comic Con Stuttgart</li>
+                    <li>Comic Con Dornbirn</li>
+                    <li>AniMuc Fürstenfeldbruck</li>
+                    <li>Royalcon in Enns</li>
+                    <li>Minicon in Lustenau</li>
+                    <li>Cosquest München</li>
+                    <li>KDKasei in Regensburg</li>
+                    <li>Hana & Spring in Königsbrunn</li>
+                    <li>Hanami in Koblenz</li>
+                    <li>Loricon in Seefeld in Tirol</li>
+                    <li>Wie.Mai.Kai in Flörsheim</li>
+                    <li>Cosday² in Frankfurt</li>
+                  </ul>
                 </>
               }
             />
@@ -320,15 +363,29 @@ export default function Home() {
       />
       <br />
 
-      <ConvexBackground color={2}>
-        <h2>zzufgvzugv</h2>
-        <br />
-        <p>tgiuohjuh uih 9u7eh9u7 h97 h97h 99 7uh9 h7uhj98h890h897h 8h8 h8hu09 hj79o8uh o78n</p>
-        <br />
-        <p>tgiuohjuh uih 9u7eh9u7 h97 h97h 99 7uh9 h7uhj98h890h897h 8h8 h8hu09 hj79o8uh o78n</p>
-        <br />
-        <p>tgiuohjuh uih 9u7eh9u7 h97 h97h 99 7uh9 h7uhj98h890h897h 8h8 h8hu09 hj79o8uh o78n</p>
-      </ConvexBackground>
+      <div>
+        <h2>YumeKai - Night in Bildern</h2>
+        <p>
+          Hier sind ein paar Schnappschüsse von der YumeKai-Night am 17. Februar 2024! Die Bilder
+          geben einen kleinen Einblick in die aufregende Atmosphäre und den Spaß, den wir zusammen
+          hatten. Es war eine Nacht voller Lachen, guter Vibes und unvergesslicher Momente. Lehnt
+          euch zurück und lasst euch von den Eindrücken mitreißen – diese Fotos fangen den Spirit
+          der YumeKai – Night perfekt ein!
+        </p>
+        <p>
+          Fotografen:{" "}
+          <StyledLink href={"https://www.instagram.com/bokehbarden/"}>bokehbarden</StyledLink> &{" "}
+          <StyledLink href={"https://www.instagram.com/vanity_art_photography/"}>
+            vanity_art_photography
+          </StyledLink>
+        </p>
+        <ImageCarousel visibleCount={4} duration={2.5} images={yumeKaiNightImages} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <UnstyledLink href={"/archiv"}>
+          <StyledButton>Archiv</StyledButton>
+        </UnstyledLink>
+      </div>
     </>
   );
 }

@@ -34,7 +34,6 @@ const Side = styled.div`
   background-color: ${({ theme }) => theme.secondaryColor};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: var(--border-radius-large);
-  margin: 10px;
 `;
 
 const Front = styled(Side)`
@@ -54,9 +53,17 @@ const CardContent = styled.div`
 
   h1,
   h2,
-  h3,
-  p {
+  h3 {
     color: #363537;
+    margin: 10px;
+  }
+  ul {
+    margin: 10px;
+  }
+  p,
+  li {
+    color: #363537;
+    font-size: large;
   }
 `;
 

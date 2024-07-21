@@ -75,7 +75,6 @@ export const GlobalStyles = createGlobalStyle`
         max-width: 100%;
         margin: auto;
         --slide-spacing: 1rem;
-        --slide-size: 25%;
     }
     .embla__viewport {
         overflow: hidden;
@@ -85,11 +84,6 @@ export const GlobalStyles = createGlobalStyle`
         display: flex;
         touch-action: pan-y pinch-zoom;
         margin-left: calc(var(--slide-spacing) * -1);
-    }
-    .embla__slide {
-        flex: 0 0 var(--slide-size);
-        min-width: 0;
-        padding-left: var(--slide-spacing);
     }
     .embla__slide__number {
         box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);

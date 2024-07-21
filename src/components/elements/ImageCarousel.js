@@ -75,6 +75,17 @@ export const NextButton = (props) => {
 const ImageTest = styled(Image)`
   width: 100%;
   height: auto;
+  border-radius: var(--border-radius-large);
+`;
+
+const Embla_Slide = styled.div`
+  min-width: 0;
+  padding-left: 1rem;
+  flex: 0 0 calc(100% / ${({ $visiblecount }) => $visiblecount});
+
+  @media (max-width: 800px) {
+    flex: 0 0 calc(100% / ${({ $visiblecount }) => $visiblecount / 2});
+  }
 `;
 
 export default function ImageSlider({ images, visibleCount, duration = 2 }) {
@@ -100,11 +111,11 @@ export default function ImageSlider({ images, visibleCount, duration = 2 }) {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {images.map((image, index) => (
-            <div className="embla__slide" key={index}>
+            <Embla_Slide $visiblecount={visibleCount} key={index}>
               <div className="embla__slide__number">
                 <ImageTest src={image} alt="" />
               </div>
-            </div>
+            </Embla_Slide>
           ))}
         </div>
       </div>
