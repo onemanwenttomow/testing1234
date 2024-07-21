@@ -6,6 +6,8 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "@/util/ThemeConfig";
 import { PageContent, PageWrapper } from "@/components/styledComponents";
 
+import Head from "next/head";
+
 // Import Icons
 import IconUp from "/public/assets/icons/arrow_drop_up.svg";
 
@@ -92,6 +94,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <Head>
+        <title>YumeKai</title>
+      </Head>
       <GlobalStyles />
       <SiteWrapper>
         <PageHeader toggleTheme={toggleTheme} theme={theme} />

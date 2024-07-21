@@ -62,17 +62,17 @@ const SocialMediaButton = styled.div`
 export function SocialMediaContainer() {
   return (
     <>
-      <Link href={"https://www.instagram.com/yumekai.official/"}>
+      <Link href={"https://www.instagram.com/yumekai.official/"} aria-label="Instagram Link">
         <SocialMediaButton>
           <InstagramLogo />
         </SocialMediaButton>
       </Link>
-      <Link href={"https://twitter.com/Yumekai_Events"}>
+      <Link href={"https://twitter.com/Yumekai_Events"} aria-label="X Link">
         <SocialMediaButton>
           <XLogo />
         </SocialMediaButton>
       </Link>
-      <Link href={"https://discord.gg/JZBCtb8V6U"}>
+      <Link href={"https://discord.gg/JZBCtb8V6U"} aria-label="Discord Link">
         <SocialMediaButton>
           <DiscordLogo />
         </SocialMediaButton>

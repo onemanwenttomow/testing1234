@@ -16,9 +16,8 @@ export default function Home() {
   return (
     <>
       <h1>Startseite</h1>
-      <p>infgqaiongoqiangqoing iaongiaqngnooig</p>
 
-      <ImageCarousel visibleCount={4} interval={3000} images={images1} />
+      <ImageCarousel visibleCount={4} duration={2.5} images={images1} />
       <br />
       <br />
       <br />

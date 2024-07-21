@@ -20,7 +20,7 @@ const ThemeToggleButton = styled.button`
 
 export default function DarkLightMode({ toggleTheme, theme }) {
   return (
-    <ThemeToggleButton onClick={toggleTheme}>
+    <ThemeToggleButton onClick={toggleTheme} aria-label="Dark / Light mode switch">
       {theme === "light" ? <IconDark /> : <IconLight />}
     </ThemeToggleButton>
   );
