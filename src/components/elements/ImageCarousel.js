@@ -110,13 +110,29 @@ export default function ImageSlider({ images, visibleCount, duration = 2 }) {
     <section className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {images.map((image, index) => (
-            <Embla_Slide $visiblecount={visibleCount} key={index}>
+          {images.map((imageObj, index) => {
+            const isObject = typeof imageObj === "object" && imageObj !== null;
+            const imageUrl = isObject ? imageObj.image : imageObj;
+            const imageLink = isObject ? imageObj.link : null;
+
+            const imageElement = (
               <div className="embla__slide__number">
-                <ImageTest src={image} alt="" />
+                <ImageTest src={imageUrl} alt={isObject ? imageObj.name : "Bild"} />
               </div>
-            </Embla_Slide>
-          ))}
+            );
+
+            return (
+              <Embla_Slide $visiblecount={visibleCount} key={index}>
+                {imageLink ? (
+                  <a href={imageLink} target="_blank" rel="noopener noreferrer">
+                    {imageElement}
+                  </a>
+                ) : (
+                  imageElement
+                )}
+              </Embla_Slide>
+            );
+          })}
         </div>
       </div>
 

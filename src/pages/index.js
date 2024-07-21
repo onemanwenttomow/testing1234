@@ -1,10 +1,10 @@
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
-import Columns4 from "@/components/elements/Columns4";
 import Image from "next/image";
-import Columns2 from "@/components/elements/Columns2";
 
 //Components
+import Columns2 from "@/components/elements/Columns2";
+import Columns4 from "@/components/elements/Columns4";
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import ImageCarousel from "@/components/elements/ImageCarousel";
 import { StyledLink, StyledButton, UnstyledLink } from "@/components/styledComponents";
@@ -38,29 +38,32 @@ import yumekaiNightImage14 from "/public/assets/images/yumekai-night-1-2024/Yume
 
 //logos
 import hiru from "/public/assets/logo/Hiru.webp";
-import hiruCosplay from "/public/assets/logo/Hiru-Cosplay.webp";
-import hiruEssen from "/public/assets/logo/Hiru-Essen.webp";
 import hiruHandy from "/public/assets/logo/Hiru-Handy.webp";
-import hiruKunstler from "/public/assets/logo/Hiru-Kunstler.webp";
-import hiruHandler from "/public/assets/logo/Hiru-Handler.webp";
 import yumekoImage from "/public/assets/logo/Yumeko.png";
 
-const images1 = [hiru, hiruCosplay, hiruEssen, hiruHandy, hiruKunstler, hiruHandler];
 const yumeKaiNightImages = [
-  yumekaiNightImage1,
-  yumekaiNightImage2,
-  yumekaiNightImage3,
-  yumekaiNightImage4,
-  yumekaiNightImage5,
-  yumekaiNightImage6,
-  yumekaiNightImage7,
-  yumekaiNightImage8,
-  yumekaiNightImage9,
-  yumekaiNightImage10,
-  yumekaiNightImage11,
-  yumekaiNightImage12,
-  yumekaiNightImage13,
-  yumekaiNightImage14,
+  { image: yumekaiNightImage1, name: "", link: "" },
+  { image: yumekaiNightImage2, name: "", link: "" },
+  { image: yumekaiNightImage3, name: "", link: "" },
+  { image: yumekaiNightImage4, name: "", link: "" },
+  { image: yumekaiNightImage5, name: "", link: "" },
+  { image: yumekaiNightImage6, name: "", link: "" },
+  { image: yumekaiNightImage7, name: "", link: "" },
+  { image: yumekaiNightImage8, name: "", link: "" },
+  { image: yumekaiNightImage9, name: "", link: "" },
+  { image: yumekaiNightImage10, name: "", link: "" },
+  { image: yumekaiNightImage11, name: "", link: "" },
+  { image: yumekaiNightImage12, name: "", link: "" },
+  { image: yumekaiNightImage13, name: "", link: "" },
+  { image: yumekaiNightImage14, name: "", link: "" },
+];
+
+const partner = [
+  { image: stellaImage, name: "Test", link: "https://www.instagram.com/mirukusagii/" },
+];
+
+const sponsors = [
+  { image: stellaImage, name: "Test", link: "https://www.instagram.com/mirukusagii/" },
 ];
 
 const StyledImageHome = styled(Image)`
@@ -87,7 +90,6 @@ const StyledYumekoImage = styled(Image)`
 export default function Home() {
   return (
     <>
-      <ImageCarousel visibleCount={4} duration={2.5} images={images1} />
       <h1>Aktuelles</h1>
       <p>
         In der Rubrik „Aktuelles“ kannst du erfahren, was gerade bei YumeKai geschieht. Hier
@@ -151,7 +153,10 @@ export default function Home() {
                 src={onyxCosplayImage}
                 alt="Onyx als Toybox
                 Hatsune Miku von Vocaloid"
-                layout="responsive"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
               />
               <p style={{ textAlign: "center", marginTop: 0 }}>
                 <StyledLink href={"https://www.instagram.com/onyx_costumes/"} target="_blank">
@@ -168,7 +173,10 @@ export default function Home() {
                 src={fylyCosplayImgae}
                 alt="Fyly als Shea Haulia
                 von Arifureta S2"
-                layout="responsive"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
               />
               <p style={{ textAlign: "center", marginTop: 0 }}>
                 <StyledLink href={"https://www.instagram.com/fyly_cosplays/"} target="_blank">
@@ -185,7 +193,10 @@ export default function Home() {
                 src={scarlettCosplayImage}
                 alt="Scarlett Sirene als
                 Soraka Koi von League of Legends"
-                layout="responsive"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
               />
               <p style={{ textAlign: "center", marginTop: 0 }}>
                 <StyledLink href={"https://www.instagram.com/scarlettsirene2/"} target="_blank">
@@ -202,7 +213,10 @@ export default function Home() {
                 src={tinyfufuCosplayImage}
                 alt="Tinyfufu als Amity Blight
                 von The Owl House"
-                layout="responsive"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
               />
               <p style={{ textAlign: "center", marginTop: 0 }}>
                 <StyledLink href={"https://www.instagram.com/tinyfufu/"} target="_blank">
@@ -231,7 +245,14 @@ export default function Home() {
             </p>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <div style={{ width: "60%", height: "auto" }}>
-                <StyledYumekoImage src={yumekoImage} alt="Maskottchen Yumeko" layout="responsive" />
+                <StyledYumekoImage
+                  src={yumekoImage}
+                  alt="Maskottchen Yumeko"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                />
               </div>
             </div>
           </>
@@ -246,7 +267,10 @@ export default function Home() {
                   <StyledImageHome
                     src={miruImage}
                     alt="Yumeko Interpretation von Miru"
-                    layout="responsive"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>
                     von:{" "}
@@ -262,7 +286,10 @@ export default function Home() {
                   <StyledImageHome
                     src={leloImage}
                     alt="Yumeko Interpretation von LeLo"
-                    layout="responsive"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>
                     von:{" "}
@@ -281,7 +308,10 @@ export default function Home() {
                   <StyledImageHome
                     src={emytsuuImage}
                     alt="Yumeko Interpretation von Emytsuu"
-                    layout="responsive"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>
                     von:{" "}
@@ -297,7 +327,10 @@ export default function Home() {
                   <StyledImageHome
                     src={stellaImage}
                     alt="Yumeko Interpretation von Stella"
-                    layout="responsive"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
                   />
                   <p style={{ textAlign: "center", marginTop: 0 }}>von: Stella</p>
                 </>
@@ -351,7 +384,14 @@ export default function Home() {
           <>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
               <div style={{ width: "60%", height: "auto" }}>
-                <Image src={hiruHandy} alt="Maskottchen Hiru" layout="responsive" />
+                <Image
+                  src={hiruHandy}
+                  alt="Maskottchen Hiru"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                />
               </div>
               <p>Kennt ihr bereits Hiru?</p>
               <UnstyledLink href={"/"}>
@@ -386,6 +426,10 @@ export default function Home() {
           <StyledButton>Archiv</StyledButton>
         </UnstyledLink>
       </div>
+      <h2>Partner</h2>
+      <ImageCarousel visibleCount={4} duration={2.5} images={partner} />
+      <h2>Sponsoren</h2>
+      <ImageCarousel visibleCount={4} duration={2.5} images={sponsors} />
     </>
   );
 }
