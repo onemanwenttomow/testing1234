@@ -34,6 +34,14 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 180px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    padding: 3px 0;
+  }
 `;
 
 const FooterLine = styled.div`
@@ -74,39 +82,45 @@ export default function PageFooter() {
         </FooterContainer>
         <FooterContainer>
           <h3>Kontakt</h3>
-          <li>
-            <FooterLink href={"/"}>erstens</FooterLink>
-          </li>
-          <li>
-            <FooterLink href={"/"}>zweitens</FooterLink>
-          </li>
-          <li>
-            <FooterLink href={"/"}>drittens</FooterLink>
-          </li>
+          <ul>
+            <li>
+              <FooterLink href={"/"}>Kontaktformular</FooterLink>
+            </li>
+            <li>
+              <FooterLink href={"/"}>Helfer werden</FooterLink>
+            </li>
+            <li>
+              <FooterLink href={"/"}>Presse</FooterLink>
+            </li>
+          </ul>
         </FooterContainer>
         <FooterContainer>
           <h3>Dreamfly-Events</h3>
-          <li>
-            <FooterLink href={"/"}>erstens</FooterLink>
-          </li>
-          <li>
-            <FooterLink href={"/"}>zweitens</FooterLink>
-          </li>
-          <li>
-            <FooterLink href={"/"}>drittens</FooterLink>
-          </li>
+          <ul>
+            <li>
+              <FooterLink href={"/"}>Über uns</FooterLink>
+            </li>
+            <li>
+              <FooterLink href={"/this-is-us"}>Das sind wir</FooterLink>
+            </li>
+            <li>
+              <FooterLink href={"/"}>Impressum</FooterLink>
+            </li>
+          </ul>
         </FooterContainer>
         <FooterContainer>
           <h3>Infos</h3>
-          <li>
-            <FooterLink href={"/faq"}>FAQ</FooterLink>
-          </li>
-          <li>
-            <FooterLink href={"/"}>zweitens</FooterLink>
-          </li>
-          <li>
-            <FooterLink href={"/"}>drittens</FooterLink>
-          </li>
+          <ul>
+            <li>
+              <FooterLink href={"/faq"}>FAQ</FooterLink>
+            </li>
+            <li>
+              <FooterLink href={"/"}>Hausordnung</FooterLink>
+            </li>
+            <li>
+              <FooterLink href={"/"}>Waffen- & Kostümregeln</FooterLink>
+            </li>
+          </ul>
         </FooterContainer>
         <FooterContainer>
           <h3>Newsletter</h3>

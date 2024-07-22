@@ -45,6 +45,10 @@ const MenuLogoBackground = styled.div`
     max-width: 45vw;
     padding: 20px;
   }
+
+  @media (max-width: 800px) {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const StyledMenu = styled.nav`
@@ -54,16 +58,15 @@ const StyledMenu = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ $backgroundcolor }) => $backgroundcolor == 1 && `box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) `};
-  background-color: ${({ $backgroundcolor, theme }) =>
-    $backgroundcolor == 1 ? theme.backgroundColor2 : "transparent"};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: ${({ theme }) => theme.backgroundColor2};
 
   svg {
     fill: ${({ theme }) => theme.text};
   }
 
   @media (max-width: 800px) {
-    justify-content: flex-end;
+    display: none;
   }
 `;
 
@@ -101,6 +104,7 @@ const HamburgerIcon = styled.div`
 
   svg {
     cursor: pointer;
+    fill: ${({ theme }) => theme.text};
   }
 
   @media (max-width: 800px) {
@@ -110,7 +114,7 @@ const HamburgerIcon = styled.div`
 
 const MobileMenu = styled.div`
   position: fixed;
-  top: 50px;
+  top: 55px;
   right: 0;
   width: 200px;
   background: ${({ theme }) => theme.backgroundColor2};
@@ -120,6 +124,7 @@ const MobileMenu = styled.div`
   flex-direction: column;
   font-size: large;
   border-radius: 10px 0 0 10px;
+  padding: 5px 0 5px 0;
 
   @media (min-width: 801px) {
     display: none;
@@ -128,8 +133,9 @@ const MobileMenu = styled.div`
 
 const SubMenu = styled.div`
   position: absolute;
-  top: 23px;
+  top: 0px;
   left: 0;
+  margin-top: 28px;
   background: ${({ theme }) => theme.backgroundColor2};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 700;
@@ -182,6 +188,15 @@ const DarkLightModeWrapper = styled.div`
   right: 30px;
 `;
 
+const MobileMenuOverlay = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+`;
+
 export default function PageHeader({ toggleTheme, theme }) {
   const router = useRouter();
   const { pathname } = router;
@@ -203,14 +218,28 @@ export default function PageHeader({ toggleTheme, theme }) {
     };
   }, []);
 
-  const toggleMobileMenu = () => {
+  function toggleMobileMenu() {
+    setOpenSubMenus((prevState) => {
+      const newState = Object.keys(prevState).reduce((acc, key) => {
+        acc[key] = false;
+        return acc;
+      }, {});
+      return newState;
+    });
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  }
 
   function toggleSubMenu(index) {
     setOpenSubMenus((prevState) => ({
       ...prevState,
       [index]: !prevState[index],
+    }));
+  }
+
+  function closeSubMenu(index) {
+    setOpenSubMenus((prevState) => ({
+      ...prevState,
+      [index]: false,
     }));
   }
 
@@ -239,56 +268,61 @@ export default function PageHeader({ toggleTheme, theme }) {
         <SocialMediaContainerHeader />
       </MenuLogoBackground>
 
-      <StyledMenu $backgroundcolor={windowWidth > 800 ? 1 : 0}>
+      <StyledMenu>
         {windowWidth > 800 &&
           menuItems.map((item, index) => (
-            <SubMenuWrapper
-              key={item.name}
-              onMouseEnter={() => openSubMenu(index)}
-              onMouseLeave={() => closeSubMenu(index)}
-            >
-              <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
-                {item.name}
-              </MenuLink>
-              {item.subItems && (
-                <>
-                  <IconArrowDown style={{ cursor: "pointer" }} />
-                  {openSubMenus[index] && (
-                    <SubMenu onMouseLeave={() => closeSubMenu(index)}>
-                      <br />
-                      {item.subItems.map((subItem) => (
-                        <MenuLink
-                          key={subItem.name}
-                          href={subItem.path}
-                          $active={pathname === subItem.path ? 1 : 0}
-                          onClick={() => closeSubMenu(index)}
-                        >
-                          {subItem.name}
-                        </MenuLink>
-                      ))}
-                    </SubMenu>
-                  )}
-                </>
-              )}
-            </SubMenuWrapper>
+            <>
+              <SubMenuWrapper
+                key={item.name}
+                onMouseEnter={() => openSubMenu(index)}
+                onMouseMove={() => openSubMenu(index)}
+              >
+                <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
+                  {item.name}
+                </MenuLink>
+                {item.subItems && (
+                  <>
+                    <IconArrowDown style={{ cursor: "pointer" }} />
+                    {openSubMenus[index] && (
+                      <SubMenu onMouseLeave={() => closeSubMenu(index)}>
+                        <br />
+                        {item.subItems.map((subItem) => (
+                          <MenuLink
+                            key={subItem.name}
+                            href={subItem.path}
+                            $active={pathname === subItem.path ? 1 : 0}
+                            onClick={() => closeSubMenu(index)}
+                          >
+                            {subItem.name}
+                          </MenuLink>
+                        ))}
+                      </SubMenu>
+                    )}
+                  </>
+                )}
+              </SubMenuWrapper>
+              <DarkLightModeWrapper>
+                <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
+              </DarkLightModeWrapper>
+            </>
           ))}
-        {windowWidth > 800 && (
-          <DarkLightModeWrapper>
-            <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
-          </DarkLightModeWrapper>
-        )}
+      </StyledMenu>
+      <HamburgerIcon>
+        <IconMenu onClick={toggleMobileMenu} />
+        <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
+      </HamburgerIcon>
 
-        <HamburgerIcon>
-          <IconMenu onClick={toggleMobileMenu} />
-          <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
-        </HamburgerIcon>
-
-        {isMobileMenuOpen && (
-          <MobileMenu>
+      {isMobileMenuOpen && (
+        <MobileMenuOverlay onClick={toggleMobileMenu}>
+          <MobileMenu onClick={(e) => e.stopPropagation()}>
             {menuItems.map((item, index) => (
               <div key={item.name}>
                 <MenuItemWrapper>
-                  <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
+                  <MenuLink
+                    href={item.path}
+                    $active={pathname === item.path ? 1 : 0}
+                    onClick={toggleMobileMenu}
+                  >
                     {item.name}
                   </MenuLink>
                   {item.subItems && (
@@ -305,6 +339,7 @@ export default function PageHeader({ toggleTheme, theme }) {
                         key={subItem.name}
                         href={subItem.path}
                         $active={pathname === subItem.path ? 1 : 0}
+                        onClick={toggleMobileMenu}
                       >
                         {subItem.name}
                       </MenuLink>
@@ -314,8 +349,8 @@ export default function PageHeader({ toggleTheme, theme }) {
               </div>
             ))}
           </MobileMenu>
-        )}
-      </StyledMenu>
+        </MobileMenuOverlay>
+      )}
     </StyledHeader>
   );
 }

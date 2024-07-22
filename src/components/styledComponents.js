@@ -16,7 +16,6 @@ export const PageContent = styled.div`
   flex-direction: column;
   width: 1200px;
   max-width: 90vw;
-  background-color: ${({ theme }) => theme.backgroundColor2};
   padding: 0 10px 50px 10px;
 `;
 
@@ -49,5 +48,15 @@ export const StyledLink = styled(Link)`
 
   &:hover {
     color: ${({ theme }) => theme.activeLinkColor};
+  }
+`;
+
+export const Spacer = styled.div`
+  height: 2px;
+  background-color: ${({ theme }) => theme.text};
+  margin: 25px 0;
+
+  @media (max-width: 500px) {
+    margin: 15px 0;
   }
 `;

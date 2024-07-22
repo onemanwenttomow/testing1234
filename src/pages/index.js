@@ -7,7 +7,7 @@ import Columns2 from "@/components/elements/Columns2";
 import Columns4 from "@/components/elements/Columns4";
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import ImageCarousel from "@/components/elements/ImageCarousel";
-import { StyledLink, StyledButton, UnstyledLink } from "@/components/styledComponents";
+import { StyledLink, StyledButton, UnstyledLink, Spacer } from "@/components/styledComponents";
 import FlippingCard from "@/components/elements/FlippingCard";
 import SponsorsComponent from "@/components/home/Sponsors";
 
@@ -221,7 +221,7 @@ export default function Home() {
           }
         />
       </div>
-      <br />
+      <Spacer />
       <Columns2
         left={
           <>
@@ -332,7 +332,7 @@ export default function Home() {
           </>
         }
       />
-      <br />
+      <Spacer />
       <Columns2
         left={
           <>
@@ -394,7 +394,7 @@ export default function Home() {
           </>
         }
       />
-      <br />
+      <Spacer />
 
       <div>
         <h2>YumeKai - Night in Bildern</h2>
@@ -414,7 +414,7 @@ export default function Home() {
         </p>
         <ImageCarousel visibleCount={3.2} duration={2.5} images={yumeKaiNightImages} />
       </div>
-      <br />
+      <Spacer />
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <UnstyledLink href={"/archiv"}>
           <StyledButton>Archiv</StyledButton>
