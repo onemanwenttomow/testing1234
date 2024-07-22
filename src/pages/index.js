@@ -79,6 +79,10 @@ const yumeKaiNightImages = [
 const partner = [
   { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
   { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
+  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
+  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
+  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
+  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
 ];
 
 const sponsors = [
