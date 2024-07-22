@@ -71,20 +71,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
 
-    .embla {
-        max-width: 100%;
-        margin: auto;
-        --slide-spacing: 1rem;
-    }
-    .embla__viewport {
-        overflow: hidden;
-    }
-    .embla__container {
-        backface-visibility: hidden;
-        display: flex;
-        touch-action: pan-y pinch-zoom;
-        margin-left: calc(var(--slide-spacing) * -1);
-    }
+ 
     .embla__slide__number {
         box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
         border-radius: 1.8rem;

@@ -8,10 +8,6 @@ export const PageWrapper = styled.div`
   align-items: center;
   flex: 1;
   background-color: ${({ theme }) => theme.backgroundColor1};
-
-  @media (max-width: 500px) {
-    margin-bottom: 20px;
-  }
 `;
 
 export const PageContent = styled.div`

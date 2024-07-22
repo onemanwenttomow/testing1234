@@ -9,6 +9,7 @@ import ConvexBackground from "@/components/elements/ConvexBackground";
 import ImageCarousel from "@/components/elements/ImageCarousel";
 import { StyledLink, StyledButton, UnstyledLink } from "@/components/styledComponents";
 import FlippingCard from "@/components/elements/FlippingCard";
+import SponsorsComponent from "@/components/home/Sponsors";
 
 //Images
 import fylyCosplayImgae from "/public/assets/images/yumekai2024/Fyly_Cosplay.jpg";
@@ -36,24 +37,6 @@ import yumekaiNightImage12 from "/public/assets/images/yumekai-night-1-2024/Yume
 import yumekaiNightImage13 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-13.jpg";
 import yumekaiNightImage14 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-14.jpg";
 
-//Sponsors
-import stadtMM from "/public/assets/images/sponsors/Stadt_Memmingen.png";
-import mrVeranstaltung from "/public/assets/images/sponsors/MR_Veranstaltung.png";
-
-//Partners
-import arnosRetroVideogamesImage from "/public/assets/images/sponsors/Arnos_Retro_Videogames.png";
-import cineplexImage from "/public/assets/images/sponsors/Cineplex.png";
-import cohekiImage from "/public/assets/images/sponsors/CoHeKi.png";
-import comicTimeImage from "/public/assets/images/sponsors/comic_time.png";
-import foamlordImage from "/public/assets/images/sponsors/Foamlord.png";
-import fuyukoImage from "/public/assets/images/sponsors/fuyuko.png";
-import heldenschmiedeImage from "/public/assets/images/sponsors/Heldenschmiede.png";
-import japandigestImage from "/public/assets/images/sponsors/japandigest.png";
-import mangaMerchImage from "/public/assets/images/sponsors/manga_merch.png";
-import sndrbrImage from "/public/assets/images/sponsors/sndrbr.png";
-import squiggzImage from "/public/assets/images/sponsors/Squiggz.png";
-import zauberfederImage from "/public/assets/images/sponsors/Zauberfeder.png";
-
 //logos
 import hiru from "/public/assets/logo/Hiru.webp";
 import hiruHandy from "/public/assets/logo/Hiru-Handy.webp";
@@ -74,34 +57,6 @@ const yumeKaiNightImages = [
   { image: yumekaiNightImage12, name: "", link: "" },
   { image: yumekaiNightImage13, name: "", link: "" },
   { image: yumekaiNightImage14, name: "", link: "" },
-];
-
-const partner = [
-  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
-  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
-  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
-  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
-  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
-  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
-];
-
-const sponsors = [
-  {
-    image: arnosRetroVideogamesImage,
-    name: "Arnos Retro Videogames",
-    link: "https://www.arnos-retro-videogames.com/",
-  },
-  { image: cineplexImage, name: "Cineplex", link: "https://www.cineplex.de" },
-  { image: cohekiImage, name: "CoHeKi", link: "https://coheki.de/" },
-  { image: comicTimeImage, name: "Comic Time", link: "https://www.comic-time.de/de/" },
-  { image: foamlordImage, name: "Foamlord", link: "https://www.foamlord.de/" },
-  { image: fuyukoImage, name: "Fuyuko", link: "https://fuyuko.de/" },
-  { image: heldenschmiedeImage, name: "Heldenschmiede", link: "https://www.heldenschmiede.eu/" },
-  { image: japandigestImage, name: "Japandigest", link: "https://www.japandigest.de/" },
-  { image: mangaMerchImage, name: "Manga Merch", link: "https://manga-merch.com/" },
-  { image: sndrbrImage, name: "Sndrbr", link: "https://sndrbr.de/" },
-  { image: squiggzImage, name: "Squiggz", link: "https://www.squiggz.com/" },
-  { image: zauberfederImage, name: "Zauberfeder", link: "https://zauberfeder.de/" },
 ];
 
 const StyledImageHome = styled(Image)`
@@ -457,7 +412,7 @@ export default function Home() {
             vanity_art_photography
           </StyledLink>
         </p>
-        <ImageCarousel visibleCount={4} duration={2.5} images={yumeKaiNightImages} />
+        <ImageCarousel visibleCount={3.2} duration={2.5} images={yumeKaiNightImages} />
       </div>
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <UnstyledLink href={"/archiv"}>
@@ -465,10 +420,7 @@ export default function Home() {
         </UnstyledLink>
       </div>
 
-      <h2>Sponsoren</h2>
-      <ImageCarousel visibleCount={4} duration={2.5} images={sponsors} />
-      <h2>Partner</h2>
-      <ImageCarousel visibleCount={4} duration={2.5} images={partner} />
+      <SponsorsComponent />
     </>
   );
 }

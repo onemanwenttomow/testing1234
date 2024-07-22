@@ -78,20 +78,49 @@ const ImageTest = styled(Image)`
   border-radius: var(--border-radius-large);
 `;
 
+const Embla = styled.section`
+  max-width: 100%;
+  margin: auto;
+`;
+
+const Embla_Viewport = styled.div`
+  overflow: hidden;
+`;
+
+const Embla_Container = styled.div`
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(${({ $space }) => $space} * -1);
+
+  @media (max-width: 800px) {
+    margin-left: -20px;
+  }
+`;
+
 const Embla_Slide = styled.div`
   min-width: 0;
-  padding-left: 1rem;
+  padding-left: ${({ $space }) => $space};
   flex: 0 0 calc(100% / ${({ $visiblecount }) => $visiblecount});
 
   @media (max-width: 800px) {
     flex: 0 0 calc(100% / ${({ $visiblecount }) => $visiblecount / 2});
+    padding-left: 20px;
   }
 `;
 
-export default function ImageSlider({ images, visibleCount, duration = 2 }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: duration * 1000 }),
-  ]);
+export default function ImageSlider({
+  images,
+  visibleCount,
+  duration = 2,
+  space = "1rem",
+  sliderAlign = "center",
+  controls = true,
+}) {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { align: sliderAlign, loop: true, dragFree: true },
+    [Autoplay({ delay: duration * 1000 })]
+  );
 
   const onNavButtonClick = useCallback((emblaApi) => {
     const autoplay = emblaApi?.plugins()?.autoplay;
@@ -107,9 +136,9 @@ export default function ImageSlider({ images, visibleCount, duration = 2 }) {
     usePrevNextButtons(emblaApi, onNavButtonClick);
 
   return (
-    <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <Embla className="embla">
+      <Embla_Viewport ref={emblaRef}>
+        <Embla_Container $space={space}>
           {images.map((imageObj, index) => {
             const isObject = typeof imageObj === "object" && imageObj !== null;
             const imageUrl = isObject ? imageObj.image : imageObj;
@@ -122,7 +151,7 @@ export default function ImageSlider({ images, visibleCount, duration = 2 }) {
             );
 
             return (
-              <Embla_Slide $visiblecount={visibleCount} key={index}>
+              <Embla_Slide $visiblecount={visibleCount} $space={space} key={index}>
                 {imageLink ? (
                   <a href={imageLink} target="_blank" rel="noopener noreferrer">
                     {imageElement}
@@ -133,23 +162,24 @@ export default function ImageSlider({ images, visibleCount, duration = 2 }) {
               </Embla_Slide>
             );
           })}
+        </Embla_Container>
+      </Embla_Viewport>
+      {controls && (
+        <div className="embla__controls">
+          <div className="embla__buttons">
+            <PrevButton
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
+              aria-label="vorheriges Bild"
+            />
+            <NextButton
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+              aria-label="nächstes Bild"
+            />
+          </div>
         </div>
-      </div>
-
-      <div className="embla__controls">
-        <div className="embla__buttons">
-          <PrevButton
-            onClick={onPrevButtonClick}
-            disabled={prevBtnDisabled}
-            aria-label="vorheriges Bild"
-          />
-          <NextButton
-            onClick={onNextButtonClick}
-            disabled={nextBtnDisabled}
-            aria-label="nächstes Bild"
-          />
-        </div>
-      </div>
-    </section>
+      )}
+    </Embla>
   );
 }
