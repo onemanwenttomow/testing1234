@@ -31,6 +31,8 @@ const partnerList = [
   { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
   { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
   { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
+  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
+  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
 ];
 
 const sponsorList = [
@@ -54,15 +56,37 @@ const sponsorList = [
 
 const SponsorsComponentWrapper = styled.section`
   position: relative;
-  transition: height 0.3s ease-in-out;
+  margin-top: 30px;
 `;
 
 const SponsorsComponentContent = styled.div`
   position: absolute;
-  background-color: #f9f9fb;
+  background-color: var(--light-grey);
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: 40px;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+
+    @media (max-width: 500px) {
+      font-size: 1.5rem;
+    }
+  }
+`;
+
+const EllipseTop = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 40px;
+  background-color: var(--light-grey);
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  border-radius: 40% 50% 0 0;
+  z-index: 1;
 `;
 
 export default function SponsorsComponent() {
@@ -72,7 +96,7 @@ export default function SponsorsComponent() {
   useEffect(() => {
     const updateHeight = () => {
       if (wrapperRef.current && contentRef.current) {
-        wrapperRef.current.style.height = `${contentRef.current.offsetHeight - 50}px`;
+        wrapperRef.current.style.height = `${contentRef.current.offsetHeight - 10}px`;
       }
     };
 
@@ -83,29 +107,31 @@ export default function SponsorsComponent() {
   }, []);
 
   return (
-    <SponsorsComponentWrapper ref={wrapperRef}>
-      <SponsorsComponentContent ref={contentRef}>
-        <h2>Sponsoren</h2>
-        <ImageCarousel
-          visibleCount={5}
-          duration={2.5}
-          images={sponsorList}
-          space="50px"
-          bgcolor={"#f9f9fb"}
-          sliderAlign={"start"}
-          controls={false}
-        />
-        <h2>Partner</h2>
-        <ImageCarousel
-          visibleCount={3}
-          duration={2.5}
-          images={partnerList}
-          space="50px"
-          bgcolor={"#f9f9fb"}
-          sliderAlign={"start"}
-          controls={false}
-        />
-      </SponsorsComponentContent>
-    </SponsorsComponentWrapper>
+    <div>
+      <SponsorsComponentWrapper ref={wrapperRef}>
+        <EllipseTop />
+        <SponsorsComponentContent ref={contentRef}>
+          <h2>Sponsoren</h2>
+          <ImageCarousel
+            visibleCount={8}
+            duration={3}
+            images={sponsorList}
+            space="50px"
+            sliderAlign={"start"}
+            controls={false}
+          />
+          <br />
+          <h2>Partner</h2>
+          <ImageCarousel
+            visibleCount={6}
+            duration={3}
+            images={partnerList}
+            space="50px"
+            sliderAlign={"start"}
+            controls={false}
+          />
+        </SponsorsComponentContent>
+      </SponsorsComponentWrapper>
+    </div>
   );
 }

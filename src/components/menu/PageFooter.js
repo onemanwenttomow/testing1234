@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { SocialMediaContainerFooter } from "@/components/menu/SocialMediaContainer";
+import { StyledButton } from "@/components/styledComponents";
 
 const FooterBackground = styled.footer`
   width: 100%;
@@ -14,12 +15,16 @@ const FooterBackground = styled.footer`
 `;
 
 const FooterContainerWrapper = styled.div`
+  width: 90%;
+  max-width: 1600px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: start;
   flex-wrap: wrap;
 
   @media (max-width: 500px) {
+    width: 95%;
     flex-direction: column;
     align-items: center;
   }
@@ -35,16 +40,27 @@ const FooterLine = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
+
+  p,
+  a {
+    margin: 5px;
+  }
 
   @media (max-width: 420px) {
     flex-direction: column;
     align-items: center;
     gap: 0;
+  }
+`;
 
-    p {
-      margin: 5px;
-    }
+const FooterLink = styled(Link)`
+  text-decoration: none;
+  color: #363537;
+
+  &:hover {
+    color: ${({ theme }) => theme.primaryColor};
   }
 `;
 
@@ -58,31 +74,49 @@ export default function PageFooter() {
         </FooterContainer>
         <FooterContainer>
           <h3>Kontakt</h3>
-          <li>erstens</li>
-          <li>zweitens</li>
-          <li>drittens</li>
+          <li>
+            <FooterLink href={"/"}>erstens</FooterLink>
+          </li>
+          <li>
+            <FooterLink href={"/"}>zweitens</FooterLink>
+          </li>
+          <li>
+            <FooterLink href={"/"}>drittens</FooterLink>
+          </li>
         </FooterContainer>
         <FooterContainer>
           <h3>Dreamfly-Events</h3>
-          <li>erstens</li>
-          <li>zweitens</li>
-          <li>drittens</li>
+          <li>
+            <FooterLink href={"/"}>erstens</FooterLink>
+          </li>
+          <li>
+            <FooterLink href={"/"}>zweitens</FooterLink>
+          </li>
+          <li>
+            <FooterLink href={"/"}>drittens</FooterLink>
+          </li>
         </FooterContainer>
         <FooterContainer>
           <h3>Infos</h3>
-          <Link href={"/faq"}>FAQ</Link>
-          <li>zweitens</li>
-          <li>drittens</li>
+          <li>
+            <FooterLink href={"/faq"}>FAQ</FooterLink>
+          </li>
+          <li>
+            <FooterLink href={"/"}>zweitens</FooterLink>
+          </li>
+          <li>
+            <FooterLink href={"/"}>drittens</FooterLink>
+          </li>
         </FooterContainer>
         <FooterContainer>
           <h3>Newsletter</h3>
-          <button>Abonnieren</button>
+          <StyledButton>Abonnieren</StyledButton>
         </FooterContainer>
       </FooterContainerWrapper>
       <FooterLine>
         <p>© 2024 Dreamfly-Events UG</p>
-        <p>Datenschutz</p>
-        <Link href={"/impressum"}>Impressum</Link>
+        <FooterLink href={"/"}>Datenschutz</FooterLink>
+        <FooterLink href={"/impressum"}>Impressum</FooterLink>
       </FooterLine>
     </FooterBackground>
   );

@@ -26,6 +26,7 @@ const ScrollToTopButton = styled.div`
   cursor: pointer;
   transition: 0.3s;
   z-index: 999;
+  opacity: 0.5;
 
   svg {
     fill: black;
@@ -37,6 +38,7 @@ const ScrollToTopButton = styled.div`
   &:hover {
     transform: scale(1.1);
     transition: 0.3s;
+    opacity: 1;
   }
 `;
 

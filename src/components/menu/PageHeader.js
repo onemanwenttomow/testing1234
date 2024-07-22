@@ -69,8 +69,8 @@ const StyledMenu = styled.nav`
 
 const MenuLink = styled(Link)`
   text-decoration: none;
-  padding: 0 15px;
-  color: ${({ theme }) => theme.secondaryColor};
+  padding: 5px 15px;
+  color: ${({ theme, $active }) => ($active == 1 ? theme.primaryColor : theme.secondaryColor)};
   font-weight: bold;
   font-size: large;
   display: flex;
@@ -78,14 +78,8 @@ const MenuLink = styled(Link)`
   justify-content: space-between;
   transition: transform 0.3s ease;
 
-  ${({ $active }) =>
-    $active == 1 &&
-    `
-      color: ${({ theme }) => theme.secondaryColor};
-    `}
-
   &:hover {
-    color: var(--grey);
+    color: ${({ theme }) => theme.primaryColor};
     transform: translateY(-3px);
     transition: transform 0.3s ease;
   }
@@ -125,6 +119,7 @@ const MobileMenu = styled.div`
   display: flex;
   flex-direction: column;
   font-size: large;
+  border-radius: 10px 0 0 10px;
 
   @media (min-width: 801px) {
     display: none;
@@ -133,7 +128,7 @@ const MobileMenu = styled.div`
 
 const SubMenu = styled.div`
   position: absolute;
-  top: 18px;
+  top: 23px;
   left: 0;
   background: ${({ theme }) => theme.backgroundColor2};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -141,6 +136,7 @@ const SubMenu = styled.div`
   display: flex;
   flex-direction: column;
   display: none;
+  border-radius: 0 0 10px 10px;
 `;
 
 const SubMenuWrapper = styled.div`
@@ -157,8 +153,8 @@ const SubMenuWrapper = styled.div`
   }
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -176,8 +172,8 @@ const MenuItemWrapper = styled.div`
   align-items: center;
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 30px;
+    height: 30px;
   }
 `;
 

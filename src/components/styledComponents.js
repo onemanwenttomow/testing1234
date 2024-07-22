@@ -31,6 +31,7 @@ export const StyledButton = styled.button`
   padding: 10px 20px;
   border-radius: var(--border-radius-large);
   font-size: large;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-3px);
