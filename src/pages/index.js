@@ -407,8 +407,11 @@ export default function Home() {
         </p>
         <p>
           Fotografen:{" "}
-          <StyledLink href={"https://www.instagram.com/bokehbarden/"}>bokehbarden</StyledLink> &{" "}
-          <StyledLink href={"https://www.instagram.com/vanity_art_photography/"}>
+          <StyledLink href={"https://www.instagram.com/bokehbarden/"} target="_blank">
+            bokehbarden
+          </StyledLink>{" "}
+          &{" "}
+          <StyledLink href={"https://www.instagram.com/vanity_art_photography/"} target="_blank">
             vanity_art_photography
           </StyledLink>
         </p>

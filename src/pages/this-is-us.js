@@ -2,7 +2,6 @@ import Columns2 from "@/components/elements/Columns2";
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import RectangleContainer from "@/components/elements/RectangleContainer";
 import { StyledButton, UnstyledLink, SpacerEmpty } from "@/components/styledComponents";
-import Link from "next/link";
 
 export default function ThisIsUs() {
   return (
