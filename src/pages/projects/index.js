@@ -44,8 +44,7 @@ export default function Projects() {
         es sich um unsere große Convention YumeKai handelt oder um eines unserer kleineren geplanten
         Projekte. Für uns ist es das Wichtigste, dass jedes unserer Events zu einem unvergesslichen
         Traumerlebnis wird.
-      </p>
-      <p>
+        <br />
         Wir möchten jeden Besucher verzaubern und geben dafür bei jedem noch so kleinen Event unser
         Bestes. Unser Ziel ist es, Jung und Alt durch (Populär-)Kultur zusammenzubringen und
         unvergessliche Momente zu schaffen.
@@ -87,7 +86,7 @@ export default function Projects() {
         }
         right={
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <ProjectLink href={"/projects/yumekai"}>
+            <ProjectLink href={"/projects/yumekai-night"}>
               <Image src={YumeKaiNightLogo} alt="" />
             </ProjectLink>
           </div>

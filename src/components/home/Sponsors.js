@@ -94,11 +94,11 @@ export default function SponsorsComponent() {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    const updateHeight = () => {
+    function updateHeight() {
       if (wrapperRef.current && contentRef.current) {
         wrapperRef.current.style.height = `${contentRef.current.offsetHeight - 10}px`;
       }
-    };
+    }
 
     updateHeight();
 
