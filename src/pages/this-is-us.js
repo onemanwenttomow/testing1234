@@ -1,7 +1,7 @@
 import Columns2 from "@/components/elements/Columns2";
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import RectangleContainer from "@/components/elements/RectangleContainer";
-import { StyledButton, UnstyledLink } from "@/components/styledComponents";
+import { StyledButton, UnstyledLink, SpacerEmpty } from "@/components/styledComponents";
 import Link from "next/link";
 
 export default function ThisIsUs() {
@@ -22,6 +22,7 @@ export default function ThisIsUs() {
         für unsere und eure Hobbys in verschiedenen Events erlebbar zu machen und einen Ort zu
         schaffen, auf dem wir alle wir sein können.
       </p>
+      <SpacerEmpty />
       <ConvexBackground color={1}>
         <h2>{`Unser Motto lautet: "LEB DEINEN TRAUM"`}</h2>
         <p>
@@ -32,7 +33,7 @@ export default function ThisIsUs() {
         </p>
         <p>Zudem bedeutet „Yume“ aus dem Japanischen übersetzt „Traum“.</p>
       </ConvexBackground>
-      <br />
+      <SpacerEmpty />
       <Columns2
         left={
           <>

@@ -60,3 +60,12 @@ export const Spacer = styled.div`
     margin: 15px 0;
   }
 `;
+
+export const SpacerEmpty = styled.div`
+  height: 2px;
+  margin: 25px 0;
+
+  @media (max-width: 500px) {
+    margin: 15px 0;
+  }
+`;

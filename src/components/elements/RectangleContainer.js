@@ -39,7 +39,7 @@ const Container = styled.article`
   }
 
   p {
-    width: 100%;
+    margin: 0 10px 20px 10px;
     text-align: ${({ $rectanglecenter }) => ($rectanglecenter == 1 ? "center" : "start")};
     color: #363537;
   }

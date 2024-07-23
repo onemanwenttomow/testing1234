@@ -236,7 +236,7 @@ export default function Home() {
               Grafiktablett oder lass einfach die Finger über die Tasten tanzen – und lass Yumeko
               neu erstrahlen!
             </p>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ justifyContent: "center" }} className="responsive-container">
               <div style={{ width: "60%", height: "auto" }}>
                 <StyledYumekoImage
                   src={yumekoImage}

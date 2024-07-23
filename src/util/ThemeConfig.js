@@ -70,6 +70,13 @@ export const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.primaryColor};
     }
 
+    .responsive-container{
+        display: flex;
+        @media (max-width: 500px) {
+            display: none;
+        }
+    }
+
 
  
     .embla__slide__number {
