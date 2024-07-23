@@ -41,41 +41,18 @@ Aufruf der Component
 
 const ColumnsWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-
-  @media (max-width: 800px) {
-    flex-direction: row;
-  }
 `;
 
 const Column = styled.div`
   width: calc(25% - 10px);
-  margin-bottom: 20px;
+  margin: 0 5px 5px 5px;
 
   @media (max-width: 800px) {
     width: calc(50% - 10px);
-    margin-bottom: 20px;
-  }
-
-  &:nth-child(odd) {
-    margin-right: 10px;
-  }
-
-  @media (max-width: 800px) {
-    &:nth-child(odd) {
-      margin-right: 0;
-    }
-
-    &:nth-child(even) {
-      margin-right: 10px;
-    }
-  }
-
-  &:last-child,
-  &:nth-last-child(2) {
-    margin-bottom: 0;
   }
 `;
 

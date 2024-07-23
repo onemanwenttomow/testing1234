@@ -7,7 +7,13 @@ import Columns2 from "@/components/elements/Columns2";
 import Columns4 from "@/components/elements/Columns4";
 import ConvexBackground from "@/components/elements/ConvexBackground";
 import ImageCarousel from "@/components/elements/ImageCarousel";
-import { StyledLink, StyledButton, UnstyledLink, Spacer } from "@/components/styledComponents";
+import {
+  StyledLink,
+  StyledButton,
+  UnstyledLink,
+  Spacer,
+  SpacerEmpty,
+} from "@/components/styledComponents";
 import FlippingCard from "@/components/elements/FlippingCard";
 import SponsorsComponent from "@/components/home/Sponsors";
 
@@ -89,7 +95,7 @@ export default function Home() {
         erwarten dich fortlaufend neue und fesselnde Nachrichten rund um die YumeKai.
       </p>
 
-      <br />
+      <SpacerEmpty />
       <ConvexBackground color={1}>
         <h2>{`Conventions: Überblick und Tipps für Eltern`}</h2>
         <p>
@@ -113,7 +119,7 @@ export default function Home() {
           </StyledLink>
         </p>
       </ConvexBackground>
-      <br />
+      <SpacerEmpty />
       <div>
         <h2>Gewinner unseres Cosplay Performance Wettbewerbs</h2>
         <p>
