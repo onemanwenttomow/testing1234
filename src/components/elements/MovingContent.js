@@ -25,11 +25,17 @@ const MovingContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 
   will-change: transform;
   svg {
     width: 60%;
     height: 60%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 
   @media (max-width: 500px) {
