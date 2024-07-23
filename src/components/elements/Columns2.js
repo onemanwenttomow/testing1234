@@ -28,6 +28,7 @@ mobile:   1 -> flex-direction column
 const ColumnsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 
   @media (max-width: 800px) {
@@ -39,20 +40,22 @@ const Column = styled.div`
   width: calc(50% - 10px);
 
   @media (max-width: 800px) {
-    width: ${({ $mobile }) => ($mobile == 1 ? "100%" : "calc(50% - 10px)")};
-    margin-bottom: 20px;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
+    width: ${({ $mobile }) => ($mobile == 1 ? "100%" : "calc(50% - 5px)")};
+    ${({ $mobile }) => $mobile == 1 && "margin-bottom: 10px;"}
+    order: ${({ $reverse, $isRight }) =>
+      $reverse && $isRight ? -1 : $reverse && !$isRight ? 1 : 0};
   }
 `;
 
-export default function Columns2({ left, right, mobile = 1 }) {
+export default function Columns2({ left, right, mobile = 1, reverse = false }) {
   return (
     <ColumnsWrapper $mobile={mobile}>
-      <Column $mobile={mobile}>{left}</Column>
-      <Column $mobile={mobile}>{right}</Column>
+      <Column $mobile={mobile} $reverse={reverse} $isRight={false}>
+        {left}
+      </Column>
+      <Column $mobile={mobile} $reverse={reverse} $isRight={true}>
+        {right}
+      </Column>
     </ColumnsWrapper>
   );
 }

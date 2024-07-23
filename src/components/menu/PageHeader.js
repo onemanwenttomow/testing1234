@@ -15,10 +15,10 @@ const menuItems = [
   { name: "Startseite", path: "/" },
   {
     name: "Projekte",
-    path: "/projekte",
+    path: "/projects",
     subItems: [
-      { name: "YumeKai", path: "/projekte/yumekai" },
-      { name: "YumeKai-Night", path: "/projekte/yumekai-night" },
+      { name: "YumeKai", path: "/projects/yumekai" },
+      { name: "YumeKai-Night", path: "/projects/yumekai-night" },
     ],
   },
   { name: "Rückblick YumeKai", path: "/yumekai-2024" },

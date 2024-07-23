@@ -95,6 +95,19 @@ export default function App({ Component, pageProps }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  //--------------------------------------------------------------------------------------------
+  let cls = 0;
+
+  new PerformanceObserver((entryList) => {
+    for (const entry of entryList.getEntries()) {
+      if (!entry.hadRecentInput) {
+        cls += entry.value;
+        console.log("Current CLS value:", cls, entry);
+      }
+    }
+  }).observe({ type: "layout-shift", buffered: true });
+  //-----------------------------------------------------------------------------------------------------
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Head>
