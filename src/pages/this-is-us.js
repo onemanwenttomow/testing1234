@@ -71,7 +71,7 @@ export default function ThisIsUs() {
                 Taucht ein in die Hintergrundgeschichte der Yumekai-Gründer, erfahrt hier
                 ausführlich über die kreativen Köpfe hinter der Yumekai.
               </p>
-              <UnstyledLink href={"/ueber-uns"}>
+              <UnstyledLink href={"/about-us"}>
                 <StyledButton>mehr erfahren</StyledButton>
               </UnstyledLink>
             </RectangleContainer>

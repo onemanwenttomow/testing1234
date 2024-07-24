@@ -96,6 +96,8 @@ export default function App({ Component, pageProps }) {
   };
 
   //--------------------------------------------------------------------------------------------
+  //CLS value consol log
+
   let cls = 0;
 
   new PerformanceObserver((entryList) => {
