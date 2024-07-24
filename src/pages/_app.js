@@ -95,6 +95,7 @@ export default function App({ Component, pageProps }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  /*
   //--------------------------------------------------------------------------------------------
   //CLS value consol log
 
@@ -109,7 +110,7 @@ export default function App({ Component, pageProps }) {
     }
   }).observe({ type: "layout-shift", buffered: true });
   //-----------------------------------------------------------------------------------------------------
-
+*/
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Head>

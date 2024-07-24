@@ -98,13 +98,13 @@ export default function PageFooter() {
           <h3>Dreamfly-Events</h3>
           <ul>
             <li>
-              <FooterLink href={"/"}>Über uns</FooterLink>
+              <FooterLink href={"/ueber-uns"}>Über uns</FooterLink>
             </li>
             <li>
               <FooterLink href={"/das-sind-wir"}>Das sind Wir</FooterLink>
             </li>
             <li>
-              <FooterLink href={"/"}>Impressum</FooterLink>
+              <FooterLink href={"/impressum"}>Impressum</FooterLink>
             </li>
           </ul>
         </FooterContainer>

@@ -71,7 +71,7 @@ export default function DasSindWir() {
                 Taucht ein in die Hintergrundgeschichte der Yumekai-Gründer, erfahrt hier
                 ausführlich über die kreativen Köpfe hinter der Yumekai.
               </p>
-              <UnstyledLink href={"/about-us"}>
+              <UnstyledLink href={"/ueber-uns"}>
                 <StyledButton>mehr erfahren</StyledButton>
               </UnstyledLink>
             </RectangleContainer>
