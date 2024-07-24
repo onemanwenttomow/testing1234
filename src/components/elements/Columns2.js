@@ -4,6 +4,8 @@ import styled from "styled-components";
 Aufruf der Component
 mobile:   1 -> flex-direction column
           2 -> flex-direction row
+reverse   false -> nothing
+          true  -> chnage mobile order
 
       <Columns2
         left={

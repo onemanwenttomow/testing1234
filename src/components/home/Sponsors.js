@@ -41,7 +41,7 @@ const sponsorList = [
     name: "Arnos Retro Videogames",
     link: "https://www.arnos-retro-videogames.com/",
   },
-  { image: cineplexImage, name: "Cineplex", link: "https://www.cineplex.de" },
+  { image: cineplexImage, name: "Cineplex", link: "https://www.cineplex.de/memmingen/" },
   { image: cohekiImage, name: "CoHeKi", link: "https://coheki.de/" },
   { image: comicTimeImage, name: "Comic Time", link: "https://www.comic-time.de/de/" },
   { image: foamlordImage, name: "Foamlord", link: "https://www.foamlord.de/" },
