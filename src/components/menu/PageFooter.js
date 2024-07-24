@@ -129,7 +129,7 @@ export default function PageFooter() {
       </FooterContainerWrapper>
       <FooterLine>
         <p>© 2024 Dreamfly-Events UG</p>
-        <FooterLink href={"/"}>Datenschutz</FooterLink>
+        <FooterLink href={"/datenschutz"}>Datenschutz</FooterLink>
         <FooterLink href={"/impressum"}>Impressum</FooterLink>
       </FooterLine>
     </FooterBackground>

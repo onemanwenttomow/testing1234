@@ -271,41 +271,39 @@ export default function PageHeader({ toggleTheme, theme }) {
       <StyledMenu>
         {windowWidth > 800 &&
           menuItems.map((item, index) => (
-            <>
-              <SubMenuWrapper
-                key={item.name}
-                onMouseEnter={() => openSubMenu(index)}
-                onMouseMove={() => openSubMenu(index)}
-              >
-                <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
-                  {item.name}
-                </MenuLink>
-                {item.subItems && (
-                  <>
-                    <IconArrowDown style={{ cursor: "pointer" }} />
-                    {openSubMenus[index] && (
-                      <SubMenu onMouseLeave={() => closeSubMenu(index)}>
-                        <br />
-                        {item.subItems.map((subItem) => (
-                          <MenuLink
-                            key={subItem.name}
-                            href={subItem.path}
-                            $active={pathname === subItem.path ? 1 : 0}
-                            onClick={() => closeSubMenu(index)}
-                          >
-                            {subItem.name}
-                          </MenuLink>
-                        ))}
-                      </SubMenu>
-                    )}
-                  </>
-                )}
-              </SubMenuWrapper>
-              <DarkLightModeWrapper>
-                <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
-              </DarkLightModeWrapper>
-            </>
+            <SubMenuWrapper
+              key={item.path}
+              onMouseEnter={() => openSubMenu(index)}
+              onMouseMove={() => openSubMenu(index)}
+            >
+              <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
+                {item.name}
+              </MenuLink>
+              {item.subItems && (
+                <>
+                  <IconArrowDown style={{ cursor: "pointer" }} />
+                  {openSubMenus[index] && (
+                    <SubMenu onMouseLeave={() => closeSubMenu(index)}>
+                      <br />
+                      {item.subItems.map((subItem) => (
+                        <MenuLink
+                          key={subItem.path}
+                          href={subItem.path}
+                          $active={pathname === subItem.path ? 1 : 0}
+                          onClick={() => closeSubMenu(index)}
+                        >
+                          {subItem.name}
+                        </MenuLink>
+                      ))}
+                    </SubMenu>
+                  )}
+                </>
+              )}
+            </SubMenuWrapper>
           ))}
+        <DarkLightModeWrapper>
+          <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
+        </DarkLightModeWrapper>
       </StyledMenu>
       <HamburgerIcon>
         <IconMenu onClick={toggleMobileMenu} />
@@ -316,7 +314,7 @@ export default function PageHeader({ toggleTheme, theme }) {
         <MobileMenuOverlay onClick={toggleMobileMenu}>
           <MobileMenu onClick={(e) => e.stopPropagation()}>
             {menuItems.map((item, index) => (
-              <div key={item.name}>
+              <div key={`${item.path}mobile`}>
                 <MenuItemWrapper>
                   <MenuLink
                     href={item.path}
@@ -336,7 +334,7 @@ export default function PageHeader({ toggleTheme, theme }) {
                   <MobileSubMenu $isOpen={openSubMenus[index]}>
                     {item.subItems.map((subItem) => (
                       <MenuLink
-                        key={subItem.name}
+                        key={`${subItem.path}mobile`}
                         href={subItem.path}
                         $active={pathname === subItem.path ? 1 : 0}
                         onClick={toggleMobileMenu}

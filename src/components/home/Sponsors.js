@@ -6,10 +6,6 @@ import { useRef, useEffect } from "react";
 //Components
 import ImageCarousel from "@/components/elements/ImageCarousel";
 
-//Partners
-import stadtMM from "/public/assets/images/sponsors/Stadt_Memmingen.png";
-import mrVeranstaltung from "/public/assets/images/sponsors/MR_Veranstaltung.png";
-
 //Sponsors
 import arnosRetroVideogamesImage from "/public/assets/images/sponsors/Arnos_Retro_Videogames.png";
 import cineplexImage from "/public/assets/images/sponsors/Cineplex.png";
@@ -23,17 +19,9 @@ import mangaMerchImage from "/public/assets/images/sponsors/manga_merch.png";
 import sndrbrImage from "/public/assets/images/sponsors/sndrbr.png";
 import squiggzImage from "/public/assets/images/sponsors/Squiggz.png";
 import zauberfederImage from "/public/assets/images/sponsors/Zauberfeder.png";
-
-const partnerList = [
-  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
-  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
-  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
-  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
-  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
-  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
-  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
-  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
-];
+import stadtMM from "/public/assets/images/sponsors/Stadt_Memmingen.png";
+import mrVeranstaltung from "/public/assets/images/sponsors/MR_Veranstaltung.png";
+import { SpacerEmpty } from "../styledComponents";
 
 const sponsorList = [
   {
@@ -52,6 +40,8 @@ const sponsorList = [
   { image: sndrbrImage, name: "Sndrbr", link: "https://sndrbr.de/" },
   { image: squiggzImage, name: "Squiggz", link: "https://www.squiggz.com/" },
   { image: zauberfederImage, name: "Zauberfeder", link: "https://zauberfeder.de/" },
+  { image: stadtMM, name: "Stadt Memmingen", link: "https://www.memmingen.de/" },
+  { image: mrVeranstaltung, name: "M&R Veranstaltung", link: "https://mr-veranstaltung.de/" },
 ];
 
 const SponsorsComponentWrapper = styled.section`
@@ -111,7 +101,7 @@ export default function SponsorsComponent() {
       <SponsorsComponentWrapper ref={wrapperRef}>
         <EllipseTop />
         <SponsorsComponentContent ref={contentRef}>
-          <h2>Sponsoren</h2>
+          <h2>Sponsoren & Partner</h2>
           <ImageCarousel
             visibleCount={8}
             duration={3}
@@ -120,16 +110,7 @@ export default function SponsorsComponent() {
             sliderAlign={"start"}
             controls={false}
           />
-          <br />
-          <h2>Partner</h2>
-          <ImageCarousel
-            visibleCount={6}
-            duration={3}
-            images={partnerList}
-            space="50px"
-            sliderAlign={"start"}
-            controls={false}
-          />
+          <SpacerEmpty />
         </SponsorsComponentContent>
       </SponsorsComponentWrapper>
     </div>
