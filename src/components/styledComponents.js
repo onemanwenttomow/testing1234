@@ -69,3 +69,7 @@ export const SpacerEmpty = styled.div`
     margin: 15px 0;
   }
 `;
+
+export const BoldText = styled.span`
+  font-weight: bold;
+`;

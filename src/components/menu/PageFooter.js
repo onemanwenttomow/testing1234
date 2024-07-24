@@ -101,7 +101,7 @@ export default function PageFooter() {
               <FooterLink href={"/"}>Über uns</FooterLink>
             </li>
             <li>
-              <FooterLink href={"/this-is-us"}>Das sind wir</FooterLink>
+              <FooterLink href={"/das-sind-wir"}>Das sind Wir</FooterLink>
             </li>
             <li>
               <FooterLink href={"/"}>Impressum</FooterLink>
@@ -115,10 +115,10 @@ export default function PageFooter() {
               <FooterLink href={"/faq"}>FAQ</FooterLink>
             </li>
             <li>
-              <FooterLink href={"/"}>Hausordnung</FooterLink>
+              <FooterLink href={"/hausordnung"}>Hausordnung</FooterLink>
             </li>
             <li>
-              <FooterLink href={"/"}>Waffen- & Kostümregeln</FooterLink>
+              <FooterLink href={"/waffenkostuemregeln"}>Waffen- & Kostümregeln</FooterLink>
             </li>
           </ul>
         </FooterContainer>

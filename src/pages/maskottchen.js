@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //Components
 import Columns2 from "@/components/elements/Columns2";
-import { StyledLink, SpacerEmpty } from "@/components/styledComponents";
+import { StyledLink, SpacerEmpty, BoldText } from "@/components/styledComponents";
 
 //logos
 import hiru from "/public/assets/logo/Hiru.webp";
@@ -44,10 +44,6 @@ const floatAnimation = keyframes`
 
 const StyledYumekoImage = styled(Image)`
   animation: ${floatAnimation} 5s ease-in-out infinite;
-`;
-
-const BoldText = styled.span`
-  font-weight: bold;
 `;
 
 export default function Maskottchen() {

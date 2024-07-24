@@ -3,7 +3,7 @@ import ConvexBackground from "@/components/elements/ConvexBackground";
 import RectangleContainer from "@/components/elements/RectangleContainer";
 import { StyledButton, UnstyledLink, SpacerEmpty } from "@/components/styledComponents";
 
-export default function ThisIsUs() {
+export default function DasSindWir() {
   return (
     <>
       <h1>Das sind wir</h1>

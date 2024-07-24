@@ -22,7 +22,7 @@ const menuItems = [
     ],
   },
   { name: "Rückblick YumeKai", path: "/yumekai-2024" },
-  { name: "Das sind wir", path: "/this-is-us" },
+  { name: "Das sind Wir", path: "/das-sind-wir" },
 ];
 
 const StyledHeader = styled.header`
