@@ -39,6 +39,7 @@ const Icon = styled.div`
 const Title = styled.div`
   font-weight: bold;
   font-size: 1.2em;
+  color: ${({ $isopen, theme }) => ($isopen == 1 ? theme.primaryColor : theme.secondaryColor)};
 `;
 
 const Content = styled.div`
@@ -57,7 +58,7 @@ export default function TabTitle({ title, content }) {
     <Container>
       <TitleContainer onClick={toggleContent}>
         <Icon>{isOpen ? <IconArrowDown /> : <IconArrowRight />}</Icon>
-        <Title>{title}</Title>
+        <Title $isopen={isOpen ? 1 : 0}>{title}</Title>
       </TitleContainer>
       {isOpen && <Content>{content}</Content>}
     </Container>

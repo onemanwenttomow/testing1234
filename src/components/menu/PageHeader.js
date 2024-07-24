@@ -75,7 +75,7 @@ const MenuLink = styled(Link)`
   padding: 5px 15px;
   color: ${({ theme, $active }) => ($active == 1 ? theme.primaryColor : theme.secondaryColor)};
   font-weight: bold;
-  font-size: large;
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -85,6 +85,10 @@ const MenuLink = styled(Link)`
     color: ${({ theme }) => theme.primaryColor};
     transform: translateY(-3px);
     transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -159,6 +163,8 @@ const SubMenuWrapper = styled.div`
   }
 
   svg {
+    cursor: pointer;
+    fill: ${({ theme }) => theme.text};
     width: 30px;
     height: 30px;
   }
@@ -178,6 +184,8 @@ const MenuItemWrapper = styled.div`
   align-items: center;
 
   svg {
+    cursor: pointer;
+    fill: ${({ theme }) => theme.text};
     width: 30px;
     height: 30px;
   }

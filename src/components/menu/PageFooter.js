@@ -84,13 +84,13 @@ export default function PageFooter() {
           <h3>Kontakt</h3>
           <ul>
             <li>
-              <FooterLink href={"/"}>Kontaktformular</FooterLink>
+              <FooterLink href={"/kontaktformular"}>Kontaktformular</FooterLink>
             </li>
             <li>
-              <FooterLink href={"/"}>Helfer werden</FooterLink>
+              <FooterLink href={"/helfer"}>Helfer werden</FooterLink>
             </li>
             <li>
-              <FooterLink href={"/"}>Presse</FooterLink>
+              <FooterLink href={"/presse"}>Presse</FooterLink>
             </li>
           </ul>
         </FooterContainer>

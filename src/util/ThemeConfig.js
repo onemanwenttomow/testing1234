@@ -50,7 +50,7 @@ export const GlobalStyles = createGlobalStyle`
         background: ${({ theme }) => theme.backgroundColor1};
 
         color: ${({ theme }) => theme.text};
-        font-family: Helvetica, Tahoma, Arial, Roboto, sans-serif;
+        font-family: Helvetica, Tahoma, Arial, sans-serif;
         font-size: large;
         
 
