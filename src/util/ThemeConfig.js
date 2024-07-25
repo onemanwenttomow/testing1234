@@ -61,15 +61,34 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
 
+    p{
+        font-family: Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 1.125rem;
+    }
+
     h1{
         text-align: center;
         margin: 0;
         padding: 20px;
         color: ${({ theme }) => theme.primaryColor};
+        font-family: Tahoma;
+        font-weight: 800;
+        font-size: 2.5rem;
     }
 
     h2{
         color: ${({ theme }) => theme.primaryColor};
+        font-family: Tahoma;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+
+    h2{
+        color: ${({ theme }) => theme.primaryColor};
+        font-family: Tahoma;
+        font-weight: 600;
+        font-size: 1.75rem;
     }
 
     .responsive-container{
