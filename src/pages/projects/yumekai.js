@@ -1,11 +1,10 @@
-import Columns2 from "@/components/elements/Columns2";
-import { Spacer, SpacerEmpty } from "@/components/styledComponents";
+import { SpacerEmpty } from "@/components/styledComponents";
 import Image from "next/image";
-import Link from "next/link";
 import styled from "styled-components";
 import { useRef, useEffect, useState } from "react";
 
 //Components
+import Columns2 from "@/components/elements/Columns2";
 import RectangleContainer from "@/components/elements/RectangleContainer";
 import MovingContentWrapper from "@/components/elements/MovingContent";
 
@@ -19,6 +18,7 @@ import YumeKaiLogo from "/public/assets/logo/yumekai_color_font.svg";
 
 const ScheduleIconWrapper = styled.div`
   margin-bottom: 10px;
+
   svg {
     fill: #363537;
   }

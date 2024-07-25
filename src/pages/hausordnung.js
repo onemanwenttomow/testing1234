@@ -24,6 +24,7 @@ export default function Hausordnung() {
               href={
                 "https://www.memmingen.de/fileadmin/Allgemeine_Dateiverwaltung/Bereich_Amt1.1_Veranstaltungsstaetten/Stadthalle/Haus-_und_Benutzungsordnung_SH_30_11_22.pdf"
               }
+              target="_blank"
             >
               Hausordnung der Stadthalle Memmingen
             </StyledLink>{" "}

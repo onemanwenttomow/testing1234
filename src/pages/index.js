@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
 
 //Components
@@ -44,7 +43,6 @@ import yumekaiNightImage13 from "/public/assets/images/yumekai-night-1-2024/Yume
 import yumekaiNightImage14 from "/public/assets/images/yumekai-night-1-2024/YumeKai-Night-14.jpg";
 
 //logos
-import hiru from "/public/assets/logo/Hiru.webp";
 import hiruHandy from "/public/assets/logo/Hiru-Handy.webp";
 import yumekoImage from "/public/assets/logo/Yumeko.png";
 

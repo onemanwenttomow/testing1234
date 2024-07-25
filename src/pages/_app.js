@@ -6,8 +6,6 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "@/util/ThemeConfig";
 import { PageContent, PageWrapper } from "@/components/styledComponents";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
 import Head from "next/head";
 
 // Import Icons
@@ -113,9 +111,9 @@ export default function App({ Component, pageProps }) {
   }).observe({ type: "layout-shift", buffered: true });
   //-----------------------------------------------------------------------------------------------------
 */
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <SpeedInsights />
       <Head>
         <title>YumeKai</title>
       </Head>
@@ -124,7 +122,7 @@ export default function App({ Component, pageProps }) {
         <PageHeader toggleTheme={toggleTheme} theme={theme} />
         <PageWrapper>
           <PageContent>
-            <Component {...pageProps} theme={theme} />
+            <Component {...pageProps} />
           </PageContent>
         </PageWrapper>
         <PageFooter />

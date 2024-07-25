@@ -1,5 +1,5 @@
 import TabCard from "@/components/elements/TabCard";
-import { StyledLink, SpacerEmpty, BoldText } from "@/components/styledComponents";
+import { SpacerEmpty, BoldText } from "@/components/styledComponents";
 import YumekaiRules from "@/components/waffenkostuemregeln/yumekai-rules";
 
 export default function Waffenkostuemregeln() {

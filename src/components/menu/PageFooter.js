@@ -39,6 +39,7 @@ const FooterContainer = styled.div`
     padding: 0;
     margin: 0;
   }
+
   li {
     padding: 3px 0;
   }

@@ -1,4 +1,3 @@
-import ConvexBackground from "../elements/ConvexBackground";
 import { SpacerEmpty, StyledLink } from "../styledComponents";
 
 export default function YumekaiRules() {
@@ -98,7 +97,10 @@ export default function YumekaiRules() {
         Generell gelten die Bestimmungen des Waffengesetzes der Bundesrepublik Deutschland und die
         darin enthaltenen Einzelvorschriften. Eine vollständige Liste ist auf folgender Website
         einsehbar:{" "}
-        <StyledLink href={"https://www.gesetze-im-internet.de/waffg_2002/anlage_2.html"}>
+        <StyledLink
+          href={"https://www.gesetze-im-internet.de/waffg_2002/anlage_2.html"}
+          target="_blank"
+        >
           https://www.gesetze-im-internet.de/waffg_2002/anlage_2.html
         </StyledLink>
       </p>

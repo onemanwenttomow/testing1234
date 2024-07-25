@@ -26,8 +26,8 @@ const MovingContent = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-
   will-change: transform;
+
   svg {
     width: 60%;
     height: 60%;
@@ -40,6 +40,7 @@ const MovingContent = styled.div`
 
   @media (max-width: 500px) {
     margin-top: -20px;
+
     svg {
       width: 60%;
       height: 60%;

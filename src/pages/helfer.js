@@ -1,5 +1,5 @@
 import TabTitle from "@/components/elements/TabTitle";
-import { SpacerEmpty, StyledLink } from "@/components/styledComponents";
+import { StyledLink } from "@/components/styledComponents";
 
 export default function Helfer() {
   return (

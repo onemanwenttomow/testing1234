@@ -1,12 +1,10 @@
-import styled, { keyframes } from "styled-components";
-import Link from "next/link";
-import Image from "next/image";
+import styled from "styled-components";
 import { useRef, useEffect } from "react";
 
 //Components
 import ImageCarousel from "@/components/elements/ImageCarousel";
 
-//Sponsors
+//Sponsor Images
 import arnosRetroVideogamesImage from "/public/assets/images/sponsors/Arnos_Retro_Videogames.png";
 import cineplexImage from "/public/assets/images/sponsors/Cineplex.png";
 import cohekiImage from "/public/assets/images/sponsors/CoHeKi.png";

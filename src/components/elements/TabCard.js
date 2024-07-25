@@ -74,7 +74,7 @@ const TabContent = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor3};
 `;
 
-const TabCard = ({ tabs }) => {
+export default function TabCard({ tabs }) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -89,6 +89,4 @@ const TabCard = ({ tabs }) => {
       <TabContent>{tabs[activeTab].content}</TabContent>
     </TabContainer>
   );
-};
-
-export default TabCard;
+}

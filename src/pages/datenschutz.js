@@ -7,13 +7,16 @@ const DatenschutzWrapper = styled.div`
   h3 {
     margin: 25px 0 10px 0;
   }
+
   p {
     margin: 5px 0;
   }
+
   @media (max-width: 500px) {
     h1 {
       font-size: 1.7rem;
     }
+
     h2 {
       font-size: 1.4rem;
     }

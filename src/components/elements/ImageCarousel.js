@@ -117,10 +117,9 @@ export default function ImageSlider({
   sliderAlign = "center",
   controls = true,
 }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { align: sliderAlign, loop: true, dragFree: true },
-    [Autoplay({ delay: duration * 1000 })]
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: sliderAlign, loop: true }, [
+    Autoplay({ delay: duration * 1000 }),
+  ]);
 
   const onNavButtonClick = useCallback((emblaApi) => {
     const autoplay = emblaApi?.plugins()?.autoplay;

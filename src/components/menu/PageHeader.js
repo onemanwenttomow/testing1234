@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SocialMediaContainerHeader } from "@/components/menu/SocialMediaContainer";
 import ThemeToggle from "@/components/menu/DarkLightMode";
 
@@ -158,6 +158,7 @@ const SubMenuWrapper = styled.div`
   &:hover ${SubMenu} {
     display: flex;
   }
+
   a {
     padding-right: 5px;
   }
@@ -209,22 +210,7 @@ export default function PageHeader({ toggleTheme, theme }) {
   const router = useRouter();
   const { pathname } = router;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(null);
   const [openSubMenus, setOpenSubMenus] = useState({});
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-      if (window.innerWidth >= 800) {
-        setIsMobileMenuOpen(false);
-      }
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   function toggleMobileMenu() {
     setOpenSubMenus((prevState) => {
@@ -258,17 +244,6 @@ export default function PageHeader({ toggleTheme, theme }) {
     }));
   }
 
-  function closeSubMenu(index) {
-    setOpenSubMenus((prevState) => ({
-      ...prevState,
-      [index]: false,
-    }));
-  }
-
-  if (!windowWidth) {
-    return null;
-  }
-
   return (
     <StyledHeader>
       <MenuLogoBackground>
@@ -277,42 +252,42 @@ export default function PageHeader({ toggleTheme, theme }) {
       </MenuLogoBackground>
 
       <StyledMenu>
-        {windowWidth > 800 &&
-          menuItems.map((item, index) => (
-            <SubMenuWrapper
-              key={item.path}
-              onMouseEnter={() => openSubMenu(index)}
-              onMouseMove={() => openSubMenu(index)}
-            >
-              <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
-                {item.name}
-              </MenuLink>
-              {item.subItems && (
-                <>
-                  <IconArrowDown style={{ cursor: "pointer" }} />
-                  {openSubMenus[index] && (
-                    <SubMenu onMouseLeave={() => closeSubMenu(index)}>
-                      <br />
-                      {item.subItems.map((subItem) => (
-                        <MenuLink
-                          key={subItem.path}
-                          href={subItem.path}
-                          $active={pathname === subItem.path ? 1 : 0}
-                          onClick={() => closeSubMenu(index)}
-                        >
-                          {subItem.name}
-                        </MenuLink>
-                      ))}
-                    </SubMenu>
-                  )}
-                </>
-              )}
-            </SubMenuWrapper>
-          ))}
+        {menuItems.map((item, index) => (
+          <SubMenuWrapper
+            key={item.path}
+            onMouseEnter={() => openSubMenu(index)}
+            onMouseMove={() => openSubMenu(index)}
+          >
+            <MenuLink href={item.path} $active={pathname === item.path ? 1 : 0}>
+              {item.name}
+            </MenuLink>
+            {item.subItems && (
+              <>
+                <IconArrowDown style={{ cursor: "pointer" }} />
+                {openSubMenus[index] && (
+                  <SubMenu onMouseLeave={() => closeSubMenu(index)}>
+                    <br />
+                    {item.subItems.map((subItem) => (
+                      <MenuLink
+                        key={subItem.path}
+                        href={subItem.path}
+                        $active={pathname === subItem.path ? 1 : 0}
+                        onClick={() => closeSubMenu(index)}
+                      >
+                        {subItem.name}
+                      </MenuLink>
+                    ))}
+                  </SubMenu>
+                )}
+              </>
+            )}
+          </SubMenuWrapper>
+        ))}
         <DarkLightModeWrapper>
           <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
         </DarkLightModeWrapper>
       </StyledMenu>
+
       <HamburgerIcon>
         <IconMenu onClick={toggleMobileMenu} />
         <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
