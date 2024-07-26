@@ -81,7 +81,7 @@ export default function Helfer() {
           </>
         }
       />
-      <p>Helfer Anmeldung</p>
+      <h2>Helfer Anmeldung</h2>
     </>
   );
 }
