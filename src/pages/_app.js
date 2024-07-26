@@ -116,6 +116,7 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Head>
         <title>YumeKai</title>
+        <meta name="description" content="YumeKai Homepage, hier findest du alle aktuellen News." />
       </Head>
       <GlobalStyles />
       <SiteWrapper>
