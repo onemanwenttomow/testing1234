@@ -1,4 +1,5 @@
 import TabTitle from "@/components/elements/TabTitle";
+import HelferForm from "@/components/helfer/helferform";
 import { StyledLink } from "@/components/styledComponents";
 
 export default function Helfer() {
@@ -82,6 +83,7 @@ export default function Helfer() {
         }
       />
       <h2>Helfer Anmeldung</h2>
+      <HelferForm />
     </>
   );
 }
