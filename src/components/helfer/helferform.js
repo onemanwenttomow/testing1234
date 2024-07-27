@@ -29,6 +29,8 @@ export default function HelferForm() {
   const [assembly, setAssembly] = useState(false);
   const [deconstruction, setDeconstruction] = useState(false);
   const [gender, setGender] = useState(null);
+  const [privacyPolicy, setPrivacyPolicy] = useState(false);
+  const [contactForwarding, setContactForwarding] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -99,6 +101,27 @@ export default function HelferForm() {
         selectedOption={gender}
         inputChange={(value) => setGender(value)}
       />
+      <InputOptionCheckbox
+        title={"Abbauhelfer"}
+        isChecked={deconstruction}
+        inputChange={(value) => setDeconstruction(value)}
+      />
+      <InputOptionCheckbox
+        title={"Datenschutzerklärung"}
+        isChecked={privacyPolicy}
+        inputChange={(value) => setPrivacyPolicy(value)}
+      />
+      <p>
+        Ich habe die Datenschutzerklärung gelesen, verstanden und akzeptiere diese. Ich habe
+        verstanden, dass ich die Zustimmung zur Datenschutzerklärung jederzeit widerrufen kann. Über
+        den Widerruf habe ich die Passage in der Datenschutzerklärung gelesen und verstanden.
+      </p>
+      <InputOptionCheckbox
+        title={"Kontaktweitergabe an Orga"}
+        isChecked={contactForwarding}
+        inputChange={(value) => setContactForwarding(value)}
+      />
+      <p>Dürfen wir, der zuständigen Orga deine Kontaktdaten weiter geben.</p>
       <StyledButton type="submit">Anmelden</StyledButton>
     </StyledForm>
   );
