@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   InputOptionTextArea,
   InputOptionInput,
@@ -6,14 +6,7 @@ import {
   InputOptionCheckbox,
   InputOptionRadio,
 } from "@/components/elements/InputComponents";
-import { StyledButton } from "../styledComponents";
-import styled from "styled-components";
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
+import { StyledButton, StyledForm } from "../styledComponents";
 
 export default function HelferForm() {
   const [name, setName] = useState("");
@@ -32,12 +25,46 @@ export default function HelferForm() {
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
   const [contactForwarding, setContactForwarding] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Hier kannst du die Daten des Formulars verarbeiten
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
+
+    try {
+      const response = await fetch("/api/helferRegistration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          discordName,
+          birthdate,
+          strengths,
+          desiredTeam,
+          other,
+          nickname,
+          lastName,
+          phone,
+          assembly,
+          deconstruction,
+          gender,
+          privacyPolicy,
+          contactForwarding,
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Daten erfolgreich eingefügt:"); //TODO: Löschen result.insertID
+      } else {
+        const result = await response.json();
+        console.error("Fehler beim Einfügen der Daten:", result.error); //TODO: allternative bestätigunsseite wegen bereits eingegebener E-Mail
+      }
+    } catch (error) {
+      console.error("Fehler beim Einfügen der Daten:", error);
+    }
+
+    // Reset form error
   }
 
   return (
@@ -52,6 +79,12 @@ export default function HelferForm() {
         title="Rufname"
         inputText={nickname}
         inputChange={(value) => setNickname(value)}
+      />
+      <InputOptionRadio
+        title="Geschlecht"
+        options={["Männlich", "Weiblich", "Divers"]}
+        selectedOption={gender}
+        inputChange={(value) => setGender(value)}
       />
       <InputOptionInput
         title="Discord Name"
@@ -95,33 +128,19 @@ export default function HelferForm() {
         inputText={other}
         inputChange={(value) => setOther(value)}
       />
-      <InputOptionRadio
-        title="Geschlecht"
-        options={["Männlich", "Weiblich", "Divers"]}
-        selectedOption={gender}
-        inputChange={(value) => setGender(value)}
-      />
+
       <InputOptionCheckbox
-        title={"Abbauhelfer"}
-        isChecked={deconstruction}
-        inputChange={(value) => setDeconstruction(value)}
-      />
-      <InputOptionCheckbox
-        title={"Datenschutzerklärung"}
+        title={
+          "Ich habe die Datenschutzerklärung gelesen, verstanden und akzeptiere diese. Ich habe verstanden, dass ich die Zustimmung zur Datenschutzerklärung jederzeit widerrufen kann. Über den Widerruf habe ich die Passage in der Datenschutzerklärung gelesen und verstanden."
+        }
         isChecked={privacyPolicy}
         inputChange={(value) => setPrivacyPolicy(value)}
       />
-      <p>
-        Ich habe die Datenschutzerklärung gelesen, verstanden und akzeptiere diese. Ich habe
-        verstanden, dass ich die Zustimmung zur Datenschutzerklärung jederzeit widerrufen kann. Über
-        den Widerruf habe ich die Passage in der Datenschutzerklärung gelesen und verstanden.
-      </p>
       <InputOptionCheckbox
-        title={"Kontaktweitergabe an Orga"}
+        title={"Dürfen wir, der zuständigen Orga deine Kontaktdaten weiter geben."}
         isChecked={contactForwarding}
         inputChange={(value) => setContactForwarding(value)}
       />
-      <p>Dürfen wir, der zuständigen Orga deine Kontaktdaten weiter geben.</p>
       <StyledButton type="submit">Anmelden</StyledButton>
     </StyledForm>
   );

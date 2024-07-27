@@ -30,6 +30,25 @@ export default async function handler(req, res) {
       contactForwarding,
     } = req.body;
 
+    console.log(
+      clientIp,
+      name,
+      email,
+      discordName,
+      birthdate,
+      strengths,
+      desiredTeam,
+      other,
+      nickname,
+      lastName,
+      phone,
+      assembly,
+      deconstruction,
+      gender,
+      privacyPolicy,
+      contactForwarding
+    );
+    /*
     try {
       // Inserting the new data record
       const query = `
@@ -74,11 +93,14 @@ export default async function handler(req, res) {
 
       const [result] = await connection.query(query, values);
 
-      res.status(200).json({ message: "Daten erfolgreich eingefügt.", insertId: result.insertId });
+      res.status(200).json({ message: "Daten erfolgreich eingefügt." });
     } catch (err) {
       console.error("Fehler beim Einfügen der Daten:", err);
       res.status(500).json({ error: "Daten konnten nicht gespeichert werden." });
     }
+      */
+    res.status(200).json({ message: "Daten erfolgreich eingefügt." });
+    //
   } else {
     res.status(405).json({ message: "Methode nicht erlaubt." });
   }

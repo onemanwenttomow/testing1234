@@ -73,3 +73,9 @@ export const SpacerEmpty = styled.div`
 export const BoldText = styled.span`
   font-weight: bold;
 `;
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
