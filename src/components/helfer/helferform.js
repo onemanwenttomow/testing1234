@@ -54,7 +54,6 @@ export default function HelferForm() {
       });
 
       if (response.ok) {
-        const result = await response.json();
         console.log("Daten erfolgreich eingefügt:"); //TODO: Löschen result.insertID
       } else {
         const result = await response.json();
