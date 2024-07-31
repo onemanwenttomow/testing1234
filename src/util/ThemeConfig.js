@@ -44,7 +44,7 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         position: relative;
-        display: flex;
+        /* display: flex; */
         flex-direction: column;
         align-items: center;
         background: ${({ theme }) => theme.backgroundColor1};

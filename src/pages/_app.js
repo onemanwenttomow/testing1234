@@ -53,29 +53,29 @@ export default function App({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme-preference");
-    if (storedTheme) {
-      setTheme(storedTheme);
-    } else {
-      const systemPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      setTheme(systemPrefersDark ? "dark" : "light");
-    }
+  // useEffect(() => {
+  //   const storedTheme = localStorage.getItem("theme-preference");
+  //   if (storedTheme) {
+  //     setTheme(storedTheme);
+  //   } else {
+  //     const systemPrefersDark = window.matchMedia(
+  //       "(prefers-color-scheme: dark)"
+  //     ).matches;
+  //     setTheme(systemPrefersDark ? "dark" : "light");
+  //   }
 
-    window.addEventListener("scroll", handleScroll);
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", handleSystemThemeChange);
+  //   window.addEventListener("scroll", handleScroll);
+  //   window
+  //     .matchMedia("(prefers-color-scheme: dark)")
+  //     .addEventListener("change", handleSystemThemeChange);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener("change", handleSystemThemeChange);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //     window
+  //       .matchMedia("(prefers-color-scheme: dark)")
+  //       .removeEventListener("change", handleSystemThemeChange);
+  //   };
+  // }, []);
 
   const handleScroll = () => {
     setIsVisible(window.scrollY > 100);
@@ -113,7 +113,8 @@ export default function App({ Component, pageProps }) {
   }).observe({ type: "layout-shift", buffered: true });
   //-----------------------------------------------------------------------------------------------------
 */
-
+  console.log("here");
+  // console.log({ isVisible });
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Head>
