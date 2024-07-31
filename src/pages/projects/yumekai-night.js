@@ -59,20 +59,22 @@ export default function Projects() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  const headerImage = isMobile ? yumeKaiNightHeaderSmall : yumeKaiNightHeaderLarge;
+  const headerImage = isMobile
+    ? yumeKaiNightHeaderSmall
+    : yumeKaiNightHeaderLarge;
 
   return (
     <>
       <HeaderContainer height={headerHeight}>
         <YumekaiHeaderWrapper ref={headerRef}>
-          <Image
+          {/* <Image
             src={headerImage}
             alt="YumeKai Projekt"
             style={{
               width: "100%",
               height: "auto",
             }}
-          />
+          /> */}
         </YumekaiHeaderWrapper>
       </HeaderContainer>
       <SpacerEmpty />
@@ -82,22 +84,26 @@ export default function Projects() {
           <>
             <h1>YumeKai - Night</h1>
             <p>
-              Die YumeKai – Night ist eine Abendveranstaltung, die sich auf asiatische Musik wie
-              J-Pop und K-Pop konzentriert. Natürlich dürfen auch unvergessliche deutsche Anime- und
-              Serien-Openings nicht fehlen. <br />
-              Mit der YumeKai – Night möchten wir eine Party-Veranstaltung in den Süden Bayerns
-              bringen, bei der die Popkultur regelmäßig gefeiert werden kann. Hier könnt ihr euch
-              auf Musik, Gaming und Cosplay freuen! <br />
-              Unser Ziel ist es, eine einzigartige Atmosphäre zu schaffen, in der die Besucher die
-              Gelegenheit haben, zu den mitreißenden Klängen der asiatischen Musik zu tanzen und zu
-              feiern. Egal, ob ihr große Fans von J-Pop, K-Pop oder deutschen Anime- und
-              Serien-Openings, Gaming oder Cosplay seid, bei uns werdet ihr voll auf eure Kosten
-              kommen. <br />
-              Die YumeKai – Night lädt euch dazu ein, gemeinsam mit Gleichgesinnten eine
-              unvergessliche Nacht zu verbringen. Taucht ein in die Welt der Popkultur, genießt die
-              Musik, nehmt an spannenden Gaming-Aktivitäten teil und beeindruckt mit euren
-              einzigartigen Cosplays. <br /> Seid Teil der YumeKai-Familie und erlebt eine
-              unvergessliche Nacht voller Musik, Gaming und Cosplay!
+              Die YumeKai – Night ist eine Abendveranstaltung, die sich auf
+              asiatische Musik wie J-Pop und K-Pop konzentriert. Natürlich
+              dürfen auch unvergessliche deutsche Anime- und Serien-Openings
+              nicht fehlen. <br />
+              Mit der YumeKai – Night möchten wir eine Party-Veranstaltung in
+              den Süden Bayerns bringen, bei der die Popkultur regelmäßig
+              gefeiert werden kann. Hier könnt ihr euch auf Musik, Gaming und
+              Cosplay freuen! <br />
+              Unser Ziel ist es, eine einzigartige Atmosphäre zu schaffen, in
+              der die Besucher die Gelegenheit haben, zu den mitreißenden
+              Klängen der asiatischen Musik zu tanzen und zu feiern. Egal, ob
+              ihr große Fans von J-Pop, K-Pop oder deutschen Anime- und
+              Serien-Openings, Gaming oder Cosplay seid, bei uns werdet ihr voll
+              auf eure Kosten kommen. <br />
+              Die YumeKai – Night lädt euch dazu ein, gemeinsam mit
+              Gleichgesinnten eine unvergessliche Nacht zu verbringen. Taucht
+              ein in die Welt der Popkultur, genießt die Musik, nehmt an
+              spannenden Gaming-Aktivitäten teil und beeindruckt mit euren
+              einzigartigen Cosplays. <br /> Seid Teil der YumeKai-Familie und
+              erlebt eine unvergessliche Nacht voller Musik, Gaming und Cosplay!
             </p>
           </>
         }
@@ -114,7 +120,9 @@ export default function Projects() {
             </RectangleContainer>
             <SpacerEmpty />
             <MovingContentWrapper
-              content={<Image src={YumeKaiNightLogo} alt="YumeKai Night Logo" />}
+              content={
+                <Image src={YumeKaiNightLogo} alt="YumeKai Night Logo" />
+              }
             ></MovingContentWrapper>
           </>
         }

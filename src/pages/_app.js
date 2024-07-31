@@ -58,7 +58,9 @@ export default function App({ Component, pageProps }) {
     if (storedTheme) {
       setTheme(storedTheme);
     } else {
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const systemPrefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
       setTheme(systemPrefersDark ? "dark" : "light");
     }
 
@@ -116,11 +118,14 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Head>
         <title>YumeKai</title>
-        <meta name="description" content="YumeKai Homepage, hier findest du alle aktuellen News." />
+        <meta
+          name="description"
+          content="YumeKai Homepage, hier findest du alle aktuellen News."
+        />
       </Head>
       <GlobalStyles />
       <SiteWrapper>
-        <PageHeader toggleTheme={toggleTheme} theme={theme} />
+        {/* <PageHeader toggleTheme={toggleTheme} theme={theme} /> */}
         <PageWrapper>
           <PageContent>
             <Component {...pageProps} />

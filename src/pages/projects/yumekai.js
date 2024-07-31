@@ -66,14 +66,14 @@ export default function Projects() {
     <>
       <HeaderContainer height={headerHeight}>
         <YumekaiHeaderWrapper ref={headerRef}>
-          <Image
+          {/* <Image
             src={headerImage}
             alt="YumeKai Projekt"
             style={{
               width: "100%",
               height: "auto",
             }}
-          />
+          /> */}
         </YumekaiHeaderWrapper>
       </HeaderContainer>
       <SpacerEmpty />
@@ -83,22 +83,27 @@ export default function Projects() {
           <>
             <h1>YumeKai</h1>
             <p>
-              Die YumeKai ist eine regelmäßige Veranstaltung im Süden Bayerns, die ein breit
-              gefächertes Kultur-, Bühnen-, Händler- und Workshop-Programm bietet. Hier haben
-              Besucher aller Art die Gelegenheit, in die faszinierende Welt der Popkultur,
-              insbesondere der japanischen und asiatischen Kultur, einzutauchen. <br />
-              Unser Ziel ist es, eine beeindruckende Convention zu erschaffen, die für jeden
-              Geschmack etwas Passendes bereithält. Über zwei Tage hinweg entsteht hier ein
-              wahrgewordener Traum für Cosplayer, Anime- und Mangafans sowie Otakus und Nerds aller
-              Erfahrungsstufen und für alle, die sich für diese Themen interessieren. <br />
-              Wir möchten eine Veranstaltung schaffen, die Jung und Alt gleichermaßen anspricht und
-              unsere gemeinsamen Hobbys und Leidenschaften vermittelt. Die Mission der YumeKai
-              besteht darin, diese Leidenschaften zu fördern und Begegnungen zwischen Menschen aber
-              auch zwischen unterschiedlichen Kulturen zu ermöglichen. <br />
-              Die YumeKai soll ein Ort sein, an dem kleine und große Träume wahr werden können,
-              unvergessliche Erlebnisse geschaffen werden und neue Verbindungen entstehen. <br />
-              Wenn auch du teil davon Sein willst freuen wir uns wenn du uns auf dem Weg dahin
-              begleitest! Wir sehen uns auf der YumeKai!
+              Die YumeKai ist eine regelmäßige Veranstaltung im Süden Bayerns,
+              die ein breit gefächertes Kultur-, Bühnen-, Händler- und
+              Workshop-Programm bietet. Hier haben Besucher aller Art die
+              Gelegenheit, in die faszinierende Welt der Popkultur, insbesondere
+              der japanischen und asiatischen Kultur, einzutauchen. <br />
+              Unser Ziel ist es, eine beeindruckende Convention zu erschaffen,
+              die für jeden Geschmack etwas Passendes bereithält. Über zwei Tage
+              hinweg entsteht hier ein wahrgewordener Traum für Cosplayer,
+              Anime- und Mangafans sowie Otakus und Nerds aller Erfahrungsstufen
+              und für alle, die sich für diese Themen interessieren. <br />
+              Wir möchten eine Veranstaltung schaffen, die Jung und Alt
+              gleichermaßen anspricht und unsere gemeinsamen Hobbys und
+              Leidenschaften vermittelt. Die Mission der YumeKai besteht darin,
+              diese Leidenschaften zu fördern und Begegnungen zwischen Menschen
+              aber auch zwischen unterschiedlichen Kulturen zu ermöglichen.{" "}
+              <br />
+              Die YumeKai soll ein Ort sein, an dem kleine und große Träume wahr
+              werden können, unvergessliche Erlebnisse geschaffen werden und
+              neue Verbindungen entstehen. <br />
+              Wenn auch du teil davon Sein willst freuen wir uns wenn du uns auf
+              dem Weg dahin begleitest! Wir sehen uns auf der YumeKai!
             </p>
           </>
         }
@@ -114,7 +119,9 @@ export default function Projects() {
               <p>Wann: ???</p>
             </RectangleContainer>
             <SpacerEmpty />
-            <MovingContentWrapper content={<YumeKaiLogo />}></MovingContentWrapper>
+            <MovingContentWrapper
+              content={<YumeKaiLogo />}
+            ></MovingContentWrapper>
           </>
         }
       />

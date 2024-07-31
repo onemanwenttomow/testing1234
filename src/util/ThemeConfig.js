@@ -54,7 +54,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: large;
         
 
-        width: 100vw;
+        /* width: 100vw; */
         min-height: 100vh;
             
         overflow-y: auto;
